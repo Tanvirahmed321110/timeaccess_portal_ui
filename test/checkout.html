@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-logo">B2B</div>
+        <div>
+            <h3>Checkout</h3>
+            <p>Confirm delivery and payment</p>
+        </div>
+    </div>
+    <nav class="top-menu">
+        <a href="index.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="profile.html">Profile</a>
+    </nav>
+</header>
+
+<main class="page">
+    <div class="checkout-layout">
+        <section class="form-card">
+            <h2>Delivery Information</h2>
+
+            <div class="form-grid">
+                <div>
+                    <label>Customer Name</label>
+                    <input type="text" value="Rahim Enterprise">
+                </div>
+                <div>
+                    <label>Phone</label>
+                    <input type="text" value="017XXXXXXXX">
+                </div>
+                <div class="full-field">
+                    <label>Delivery Address</label>
+                    <textarea>Dhaka, Bangladesh</textarea>
+                </div>
+                <div>
+                    <label>Payment Method</label>
+                    <select>
+                        <option>Cash on Delivery</option>
+                        <option>Bank Transfer</option>
+                        <option>Mobile Banking</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Delivery Date</label>
+                    <input type="date">
+                </div>
+            </div>
+        </section>
+
+        <aside class="summary-card">
+            <h3>Checkout Summary</h3>
+            <div><span>Total Items</span><strong>10 PCS</strong></div>
+            <div><span>Subtotal</span><strong>৳ 25,000</strong></div>
+            <div><span>Delivery</span><strong>৳ 300</strong></div>
+            <hr>
+            <div class="total"><span>Payable</span><strong>৳ 25,300</strong></div>
+            <a href="order-confirm.html" class="btn primary full">Confirm Order</a>
+        </aside>
+    </div>
+</main>
+
+</body>
+</html>

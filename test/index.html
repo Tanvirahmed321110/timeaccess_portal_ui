@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>B2B Wholesale Portal</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-logo">B2B</div>
+        <div>
+            <h3>Wholesale Portal</h3>
+            <p>Buy products for your business</p>
+        </div>
+    </div>
+
+    <nav class="top-menu">
+        <a class="active" href="index.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="profile.html">Profile</a>
+    </nav>
+</header>
+
+<main class="page">
+
+    <section class="hero">
+        <div>
+            <span class="badge">Wholesaler Customer</span>
+            <h1>Order products faster with wholesale pricing</h1>
+            <p>Filter by category, search products, add quantity, and checkout easily.</p>
+        </div>
+        <div class="hero-card">
+            <h3>Minimum Qty</h3>
+            <strong>5 PCS</strong>
+            <p>Lowest order quantity per product</p>
+        </div>
+    </section>
+
+    <section class="filter-box">
+        <div class="category-tabs">
+            <button class="cat-btn active" data-category="all">All</button>
+            <button class="cat-btn" data-category="electronics">Electronics</button>
+            <button class="cat-btn" data-category="grocery">Grocery</button>
+            <button class="cat-btn" data-category="fashion">Fashion</button>
+            <button class="cat-btn" data-category="stationery">Stationery</button>
+        </div>
+
+        <div class="filter-row">
+            <input id="searchInput" type="text" placeholder="Search by product name or ID..."/>
+
+            <select id="priceSort">
+                <option value="">Sort by Price</option>
+                <option value="high">High to Low</option>
+                <option value="low">Low to High</option>
+            </select>
+
+            <div class="view-toggle">
+                <button id="gridBtn" class="active">Grid</button>
+                <button id="listBtn">List</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="productWrapper" class="product-grid">
+
+        <div class="product-card" data-category="electronics" data-name="Smart Watch" data-id="P-1001" data-price="1800">
+            <div class="product-img">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600" alt="">
+                <span class="tag">New</span>
+            </div>
+            <div class="product-info">
+                <p class="product-id">ID: P-1001</p>
+                <h3>Smart Watch</h3>
+                <p class="template-tag">Template: Electronics Premium</p>
+                <div class="price">৳ 1,800</div>
+                <div class="qty-box">
+                    <label>Qty</label>
+                    <input type="number" min="5" value="5"/>
+                </div>
+                <div class="card-actions">
+                    <a href="cart.html" class="btn outline">Add to Cart</a>
+                    <a href="checkout.html" class="btn primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="grocery" data-name="Premium Rice Bag" data-id="P-1002" data-price="3200">
+            <div class="product-img">
+                <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600" alt="">
+                <span class="tag">Wholesale</span>
+            </div>
+            <div class="product-info">
+                <p class="product-id">ID: P-1002</p>
+                <h3>Premium Rice Bag</h3>
+                <p class="template-tag">Template: Grocery Bulk</p>
+                <div class="price">৳ 3,200</div>
+                <div class="qty-box">
+                    <label>Qty</label>
+                    <input type="number" min="5" value="5"/>
+                </div>
+                <div class="card-actions">
+                    <a href="cart.html" class="btn outline">Add to Cart</a>
+                    <a href="checkout.html" class="btn primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="fashion" data-name="Cotton T-Shirt Pack" data-id="P-1003" data-price="900">
+            <div class="product-img">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="">
+                <span class="tag">Best Deal</span>
+            </div>
+            <div class="product-info">
+                <p class="product-id">ID: P-1003</p>
+                <h3>Cotton T-Shirt Pack</h3>
+                <p class="template-tag">Template: Fashion Basic</p>
+                <div class="price">৳ 900</div>
+                <div class="qty-box">
+                    <label>Qty</label>
+                    <input type="number" min="5" value="5"/>
+                </div>
+                <div class="card-actions">
+                    <a href="cart.html" class="btn outline">Add to Cart</a>
+                    <a href="checkout.html" class="btn primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="stationery" data-name="Office Notebook Set" data-id="P-1004" data-price="450">
+            <div class="product-img">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600" alt="">
+                <span class="tag">Stock</span>
+            </div>
+            <div class="product-info">
+                <p class="product-id">ID: P-1004</p>
+                <h3>Office Notebook Set</h3>
+                <p class="template-tag">Template: Office Supply</p>
+                <div class="price">৳ 450</div>
+                <div class="qty-box">
+                    <label>Qty</label>
+                    <input type="number" min="5" value="5"/>
+                </div>
+                <div class="card-actions">
+                    <a href="cart.html" class="btn outline">Add to Cart</a>
+                    <a href="checkout.html" class="btn primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+    const catButtons = document.querySelectorAll(".cat-btn");
+    const searchInput = document.getElementById("searchInput");
+    const priceSort = document.getElementById("priceSort");
+    const productWrapper = document.getElementById("productWrapper");
+    const gridBtn = document.getElementById("gridBtn");
+    const listBtn = document.getElementById("listBtn");
+
+    let activeCategory = "all";
+
+    function filterProducts() {
+        const search = searchInput.value.toLowerCase();
+        const cards = Array.from(document.querySelectorAll(".product-card"));
+
+        cards.forEach(card => {
+            const category = card.dataset.category;
+            const name = card.dataset.name.toLowerCase();
+            const id = card.dataset.id.toLowerCase();
+
+            const matchCategory = activeCategory === "all" || category === activeCategory;
+            const matchSearch = name.includes(search) || id.includes(search);
+
+            card.style.display = matchCategory && matchSearch ? "" : "none";
+        });
+    }
+
+    function sortProducts() {
+        const cards = Array.from(document.querySelectorAll(".product-card"));
+
+        cards.sort((a, b) => {
+            const priceA = Number(a.dataset.price);
+            const priceB = Number(b.dataset.price);
+
+            if (priceSort.value === "high") return priceB - priceA;
+            if (priceSort.value === "low") return priceA - priceB;
+            return 0;
+        });
+
+        cards.forEach(card => productWrapper.appendChild(card));
+        filterProducts();
+    }
+
+    catButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+            catButtons.forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+            activeCategory = this.dataset.category;
+            filterProducts();
+        });
+    });
+
+    searchInput.addEventListener("input", filterProducts);
+    priceSort.addEventListener("change", sortProducts);
+
+    gridBtn.addEventListener("click", function () {
+        productWrapper.classList.remove("list-view");
+        gridBtn.classList.add("active");
+        listBtn.classList.remove("active");
+    });
+
+    listBtn.addEventListener("click", function () {
+        productWrapper.classList.add("list-view");
+        listBtn.classList.add("active");
+        gridBtn.classList.remove("active");
+    });
+</script>
+
+</body>
+</html>
