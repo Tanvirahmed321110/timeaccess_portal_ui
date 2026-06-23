@@ -28,7 +28,7 @@
 
     /* Bg Colors */
     --color-bg-white: #fff;
-    --color-bg-primary: #F6F5F4;
+    --color-bg-primary: #fff;
     --color-bg-secondary: #F6F5F4;
     --color-bg-card: #FAFAF9;
     --color-bg-navbar: #ffffff;
@@ -49,13 +49,13 @@
 
     /* Border Colors */
     --border-light: #F4F2F1;
-    --border-primary: #E7E3E0;
+    --border-primary: #e7e3e0ca;
     --border-secondary: #D8D2CE;
     --border-danger: #EF4444;
 
     /*=============//  Primary Button  //=============*/
     --btn-primary-bg: #1C1B1B;
-    --btn-primary-text: #ffffff;
+    --btn-primary-text: var(--color-text-light);
     --btn-primary-hover: #0F0E0E;
     --btn-primary-border: #1C1B1B;
 
@@ -421,7 +421,7 @@ tr {
 .container-cart {
     padding: 0px 0px;
     margin: 0px auto;
-    width: 83.33%;
+    width: 85.5%;
 }
 
 

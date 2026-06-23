@@ -145,6 +145,10 @@ footer {
     transition: 0.3s;
 }
 
+.cart-btn {
+    /* font-size: 13.5px; */
+}
+
 .cart-btn:hover,
 .cart-btn.active {
     background-color: var(--color-primary);
@@ -166,8 +170,8 @@ footer {
 .filter-sec-wrap {
     padding: 24px;
     background-color: var(--color-bg-white);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-1);
+    /* border: 1px solid var(--border-primary); */
     border-radius: var(--radius-lg);
 }
 
@@ -189,7 +193,8 @@ footer {
     stroke: var(--color-text-primary);
 }
 
-.view-toggle button.active,.view-toggle button:hover {
+.view-toggle button.active,
+.view-toggle button:hover {
     background-color: var(--color-primary);
 }
 
@@ -210,7 +215,8 @@ footer {
     background: white;
     cursor: pointer;
 }
-.filter-sec  .search-input {
+
+.filter-sec .search-input {
     width: 25%;
     min-width: 400px;
 }
@@ -227,24 +233,143 @@ footer {
     Filter Section Start Here
 ===============================
 */
-.product-sec-wrap{
-    background-color: var(--color-bg-white);
-    padding: 24px;
-    margin-top: 32px;
-    box-shadow: var(--shadow-sm);
+.product-sec {
+    margin-bottom: 48px;
+}
+
+.product-sec-wrap {
+    /* background-color: var(--color-bg-white);
+    padding: 24px; */
+    margin-top: 48px;
     border-radius: var(--radius-md);
 }
 
 
-.product-card{
-    background-color: var(--border-light);
-    padding: 12px;
-    border-radius: var(--radius-xs);
+.product-card {
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-md);
     border: 1px solid var(--border-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card .top-area {
+    padding: 8px;
+}
+
+.product-card .top {
+    height: 200px;
     position: relative;
 }
 
-.product-card .top{
-    height: 200px;
-    background-color: var(--color-white);
+
+
+.product-card .top img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-base);
+    object-fit: contain;
+}
+
+.product-card .top img.hover-img {
+    object-fit: cover;
+}
+
+.product-card .top .default-img {
+    z-index: 1;
+}
+
+.product-card .top .hover-img {
+    transform: translateY(-108%);
+    z-index: 2;
+}
+
+
+.product-card:hover .top .hover-img {
+    transform: translateY(0%);
+    object-fit: cover;
+}
+
+
+/*============== .product-card Details ==============*/
+.product-card .product-content {
+    padding: 14px;
+    background-color: var(--border-light);
+    border-top: 1px solid var(--border-primary);
+    padding-top: 16px;
+}
+
+.product-card .product-name {
+    min-height: 38px;
+    height: 38px;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    opacity: .95;
+    line-height: 1.45;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.product-card .price {
+    margin-top: 12px;
+}
+
+.product-card .new-price {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: var(--fs-md);
+}
+
+.product-card .product-id {
+    color: var(--color-text-desc);
+    font-weight: 500;
+}
+
+.product-card .old-price {
+    text-decoration: line-through;
+    color: var(--color-text-desc);
+}
+
+.product-card .btn {
+    font-size: 13px;
+    padding: 10px 12px;
+}
+
+/* qty-wrapper */
+.product-card .qty-wrapper input {
+    width: 60px;
+    border: 1px solid var(--border-secondary);
+    padding: 5px 4px;
+    border-radius: var(--radius-xs);
+}
+
+.product-card .qty-wrapper label {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.tag-badge {
+    position: absolute;
+    top: 14px;
+    left: -30px;
+    background: linear-gradient(135deg, #0bac76 0%, #059669 100%);
+    color: white;
+    padding: 0px 5px;
+    width: 130px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    z-index: 4;
+    border-radius: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+    transform: perspective(100px) translateZ(2px) rotate(-35deg);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    line-height: 2;
 }

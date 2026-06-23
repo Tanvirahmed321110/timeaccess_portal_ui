@@ -2,8 +2,8 @@
 .btn{
     padding: 12px 16px;
     border: none;
-    border-radius: var(--radius-lg);
-    font-size: var(--fs-md);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
     font-weight: var(--fw-600);
     cursor: pointer;
     transition: var(--transition-base);
@@ -21,7 +21,13 @@
     background-color: var(--btn-primary-hover);
 }
 
-
+.btn.btn-outline{
+    border:1px solid var(--color-primary);
+    color: var(--color-text-primary);
+}
+.btn.btn-outline:hover{
+    color: var(--color-text-light);
+}
 
 .input-group {
     position: relative;
