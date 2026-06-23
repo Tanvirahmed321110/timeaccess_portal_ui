@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>B2B Checkout</title>
+        <link rel="stylesheet" href="/css/my_component.css">
+        <link rel="stylesheet" href="/css/custom_class.css">
+        <link rel="stylesheet" href="/css/pages.css">
+        <link rel="stylesheet" href="/css/cart-checkout.css">
+    </head>
+
+    <body>
+
+
+        <!--===========================================================-->
+        <!--================||  Header Section Here  ||=============== -->
+        <!--===========================================================-->
+        <header>
+            <div class="container">
+                <div class="header-wrap flex-between gap-4">
+
+                    <!--========== Header Logo =========-->
+                    <div class="logo">B2B<span>WHOLESALE</span></div>
+
+                    <!--======== Nav Menu Here ========-->
+                    <ul class="d-flex gap-5 menus flex-center">
+                        <li><a href="#" class="active" onclick="switchPage('portal-page')">Products
+                                Portal</a></li>
+                        <li><a href="#">Wholesaler Profile</a>
+                        </li>
+                    </ul>
+
+                    <!--========== Cart Icon ========== -->
+                    <div class="nav-icons">
+                        <a href="/cart.html" class="cart-icon-btn flex-center">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
+                                    fill="currentColor" opacity="0.08" />
+                                <path
+                                    d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
+                                    stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                                <path d="M8.5 7V5.5C8.5 3.6 10.1 2 12 2v0c1.9 0 3.5 1.6 3.5 3.5V7" stroke="currentColor"
+                                    stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+
+                            <!-- cart count/batch -->
+                            <span class="cart-count" id="cartCount">12</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+
+
+            <!--===========================================================-->
+            <!--================||  Filter Section Here  ||=============== -->
+            <!--===========================================================-->
+            <section class="cart-page mt-7 mb-7 profile">
+                <div class="container">
+                    <div id="cart-page" class="page active-page">
+                        <h2 class="page-title">Wholesaler Corporate Profile</h2>
+
+                        <div class="profile-grid mt-6">
+
+                            <!-- left side -->
+                            <div class="avatar-section">
+                                <div class="avatar-placeholder"><i class="fas fa-building"></i></div>
+                                <h3 class="text-primary">Apex Global Trade</h3>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top:5px;">Verified Tier-1
+                                    Buyer</p>
+                            </div>
+
+                            <!-- right form -->
+                            <div class="box-panel">
+                                <h3 class="text-primary fw-bolder">Account Configuration &amp; Terms</h3>
+                                <br>
+                                <div class="">
+                                    <div class="grid-2 gap-5">
+                                        <div class="input-group"><label>Primary Contact Person</label><input type="text"
+                                            value="Rahat Chowdhury"></div>
+                                    <div class="input-group"><label>Corporate Email Address</label><input type="email"
+                                            value="procurement@apexglobal.com"></div>
+                                    </div>
+                                    <div class="grid-2 gap-5 mt-5">
+                                        <div class="input-group"><label>Account Credit Limit</label><input type="text"
+                                            value="$50,000.00"></div>
+                                    <div class="input-group"><label>Phone</label><input type="text"
+                                            value="0170545641545"></div>
+                                    </div>
+                                    <div class="input-group mt-5">
+                                        <label for="">Address</label>
+                                        <textarea name="" id=""></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- save button -->
+                                <div class="flex-end d-flex justify-end mt-6">
+                                    <button class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+
+
+        <!--===========================================================-->
+        <!--================||  Footer Section Here  ||=============== -->
+        <!--===========================================================-->
+        <footer>
+            <div class="container">
+                <div class="footer-wrap flex-between">
+                    <p>© 2026 <span>B2B Wholesale Portal</span>. All Rights Reserved.</p>
+                    <p class="powered-by">Powered by <a
+                            href="https://www.xsellencebdltd.com/"><span>xsellencebdltd</span></a></p>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>B2B Checkout</title>
+        <link rel="stylesheet" href="/css/my_component.css">
+        <link rel="stylesheet" href="/css/custom_class.css">
+        <link rel="stylesheet" href="/css/pages.css">
+        <link rel="stylesheet" href="/css/cart-checkout.css">
+    </head>
+
+    <body>
+
+
+        <!--===========================================================-->
+        <!--================||  Header Section Here  ||=============== -->
+        <!--===========================================================-->
+        <header>
+            <div class="container">
+                <div class="header-wrap flex-between gap-4">
+
+                    <!--========== Header Logo =========-->
+                    <div class="logo">B2B<span>WHOLESALE</span></div>
+
+                    <!--======== Nav Menu Here ========-->
+                    <ul class="d-flex gap-5 menus flex-center">
+                        <li><a href="#" class="active" onclick="switchPage('portal-page')">Products
+                                Portal</a></li>
+                        <li><a href="#">Wholesaler Profile</a>
+                        </li>
+                    </ul>
+
+                    <!--========== Cart Icon ========== -->
+                    <div class="nav-icons">
+                        <a href="/cart.html" class="cart-icon-btn flex-center">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
+                                    fill="currentColor" opacity="0.08" />
+                                <path
+                                    d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
+                                    stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                                <path d="M8.5 7V5.5C8.5 3.6 10.1 2 12 2v0c1.9 0 3.5 1.6 3.5 3.5V7" stroke="currentColor"
+                                    stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+
+                            <!-- cart count/batch -->
+                            <span class="cart-count" id="cartCount">12</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+
+
+            <!--===========================================================-->
+            <!--================||  Filter Section Here  ||=============== -->
+            <!--===========================================================-->
+            <section class="cart-page mt-7 mb-7">
+                <div class="container">
+                    <div id="cart-page" class="page active-page">
+                        <h2 class="page-title">Secure B2B Checkout</h2>
+
+                        <from action="#" class="two-column-layout mt-6">
+                            <div class="box-panel p-4">
+                                <h4 class="fs-lg fw-bolder text-primary">Corporate Shipping & Billing Information</h4>
+
+                                <div class="flex-column gap-6 mt-5">
+                                    <div class="input-group">
+                                        <label for="">Company Name</label>
+                                        <input type="text" placeholder="Company Name">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="">Business License / BIN Number
+                                        </label>
+                                        <input type="text" placeholder="Business License">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="">Phone
+                                        </label>
+                                        <input type="text" placeholder="Enter Phone">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="">Email
+                                        </label>
+                                        <input type="text" placeholder="Enter Email">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="">Shipping Warehouse Address
+
+                                        </label>
+                                        <textarea name="" id="" placeholder="Full Address..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--====================  Card Here  ==================-->
+                            <div class="card-wrap radius-xl">
+                                <div class="box-panel card">
+                                    <h3 class="title">Final Validation</h3>
+                                    <div class="flex-column gap-3 mt-5">
+                                        <div class="summary-total  flex-between gap-3">
+                                            <div class="fs-md fw-bold">Grand
+                                                Total:</div>
+                                            <div class="fs-md fw-bold" id="summaryTotal">$1250.00</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Place Order Button Here -->
+                                    <button class="btn btn-primary btn-fs-md checkout mt-5"
+                                        style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+                                        <svg viewBox="0 0 24 24" width="18"  fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            style="width: 18px; height: 18px;">
+                                            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Place Order
+                                    </button>
+                                </div>
+                            </div>
+                        </from>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+
+
+        <!--===========================================================-->
+        <!--================||  Footer Section Here  ||=============== -->
+        <!--===========================================================-->
+        <footer>
+            <div class="container">
+                <div class="footer-wrap flex-between">
+                    <p>© 2026 <span>B2B Wholesale Portal</span>. All Rights Reserved.</p>
+                    <p class="powered-by">Powered by <a
+                            href="https://www.xsellencebdltd.com/"><span>xsellencebdltd</span></a></p>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

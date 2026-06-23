@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/css/my_component.css">
         <link rel="stylesheet" href="/css/custom_class.css">
         <link rel="stylesheet" href="/css/pages.css">
+        <link rel="stylesheet" href="/css/cart-checkout.css">
     </head>
 
     <body>
@@ -33,16 +34,14 @@
 
                     <!--========== Cart Icon ========== -->
                     <div class="nav-icons">
-                        <a href="#" class="cart-icon-btn flex-center">
+                        <a href="/cart.html" class="cart-icon-btn flex-center">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Sophisticated, solid structured luxury bag/cart silhouette -->
                                 <path
                                     d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
                                     fill="currentColor" opacity="0.08" />
                                 <path
                                     d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
                                     stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-                                <!-- Perfect geometric structural handle -->
                                 <path d="M8.5 7V5.5C8.5 3.6 10.1 2 12 2v0c1.9 0 3.5 1.6 3.5 3.5V7" stroke="currentColor"
                                     stroke-width="1.6" stroke-linecap="round" />
                             </svg>
@@ -63,7 +62,7 @@
             <!--===========================================================-->
             <!--================||  Filter Section Here  ||=============== -->
             <!--===========================================================-->
-            <section class="cart-page mt-7">
+            <section class="cart-page mt-7 mb-7">
                 <div class="container">
                     <div id="cart-page" class="page active-page">
                         <h2 class="page-title">Wholesale Order Cart</h2>
@@ -73,7 +72,7 @@
                                 <table style="width: 100%; border-collapse: collapse; text-align: left;" id="cartTable">
                                     <thead>
 
-                                        <tr style="background:#f4f4f5; border-bottom:1px solid var(--border-color);">
+                                        <tr style="background:#eaeaf5; border-bottom:1px solid var(--border-color);">
                                             <th style="padding: 12px;">Product</th>
                                             <th style="padding: 12px;">Price</th>
                                             <th style="padding: 12px;">Quantity</th>
@@ -246,6 +245,9 @@
                                     style="padding: 30px; text-align: center; color: var(--text-muted); display: none;">
                                     Your B2B Cart is empty.</div>
                             </div>
+
+
+                            <!--====================  Card Here  ==================-->
                             <div class="card-wrap radius-xl">
                                 <div class="box-panel card">
                                     <h3 class="title">Order Summary</h3>
@@ -255,14 +257,16 @@
                                         <div class="summary-line flex-between gap-3"><span>Est. Wholesale Tax
                                                 (VAT):</span><span>$0.00</span>
                                         </div>
+                                        <div class="summary-line flex-between gap-3"><span>Others:</span><span>$0.00</span>
+                                        </div>
                                         <div class="summary-total  flex-between gap-3">
                                             <h4>Grand
                                                 Total:</h4>
                                             <h4 id="summaryTotal">$1250.00</h4>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary btn-fs-md mt-5" style="width: 100%;"
-                                        >Proceed To Checkout</button>
+                                    <a href="checkout.html" class="btn btn-primary btn-fs-md mt-5 text-center" style="width: 100%;"
+                                        >Proceed To Checkout</a>
                                 </div>
                             </div>
                         </div>
