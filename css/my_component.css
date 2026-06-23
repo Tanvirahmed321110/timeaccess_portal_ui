@@ -1,7 +1,7 @@
 .btn {
     padding: 12px 16px;
     border: none;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     font-size: var(--fs-sm);
     font-weight: var(--fw-600);
     cursor: pointer;
