@@ -18,7 +18,7 @@
 
     /* Brand Color */
     --color-primary: #1C1B1B;
-    --color-primary-hover: #0F0E0E;
+    --color-primary-hover: #1e1e1e;
 
     --color-secondary: #f94c43;
     --color-secondary-hover: #f94c43;
@@ -50,7 +50,7 @@
     /* Border Colors */
     --border-light: #F4F2F1;
     --border-primary: #e7e3e0bd;
-    --border-secondary: #d8d2cee1;
+    --border-secondary: #d8d2cef1;
     --border-danger: #EF4444;
 
     /*=============//  Primary Button  //=============*/

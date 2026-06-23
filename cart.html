@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>B2B Cart</title>
+        <link rel="stylesheet" href="/css/my_component.css">
+        <link rel="stylesheet" href="/css/custom_class.css">
+        <link rel="stylesheet" href="/css/pages.css">
+    </head>
+
+    <body>
+
+
+        <!--===========================================================-->
+        <!--================||  Header Section Here  ||=============== -->
+        <!--===========================================================-->
+        <header>
+            <div class="container">
+                <div class="header-wrap flex-between gap-4">
+
+                    <!--========== Header Logo =========-->
+                    <div class="logo">B2B<span>WHOLESALE</span></div>
+
+                    <!--======== Nav Menu Here ========-->
+                    <ul class="d-flex gap-5 menus flex-center">
+                        <li><a href="#" class="active" onclick="switchPage('portal-page')">Products
+                                Portal</a></li>
+                        <li><a href="#">Wholesaler Profile</a>
+                        </li>
+                    </ul>
+
+                    <!--========== Cart Icon ========== -->
+                    <div class="nav-icons">
+                        <a href="#" class="cart-icon-btn flex-center">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Sophisticated, solid structured luxury bag/cart silhouette -->
+                                <path
+                                    d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
+                                    fill="currentColor" opacity="0.08" />
+                                <path
+                                    d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
+                                    stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                                <!-- Perfect geometric structural handle -->
+                                <path d="M8.5 7V5.5C8.5 3.6 10.1 2 12 2v0c1.9 0 3.5 1.6 3.5 3.5V7" stroke="currentColor"
+                                    stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+
+                            <!-- cart count/batch -->
+                            <span class="cart-count" id="cartCount">12</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+
+
+            <!--===========================================================-->
+            <!--================||  Filter Section Here  ||=============== -->
+            <!--===========================================================-->
+            <section class="cart-page mt-7">
+                <div class="container">
+                    <div id="cart-page" class="page active-page">
+                        <h2 class="page-title">Wholesale Order Cart</h2>
+
+                        <div class="two-column-layout mt-6">
+                            <div class="box-panel" style="padding:0;">
+                                <table style="width: 100%; border-collapse: collapse; text-align: left;" id="cartTable">
+                                    <thead>
+
+                                        <tr style="background:#f4f4f5; border-bottom:1px solid var(--border-color);">
+                                            <th style="padding: 12px;">Product</th>
+                                            <th style="padding: 12px;">Price</th>
+                                            <th style="padding: 12px;">Quantity</th>
+                                            <th style="padding: 12px;">Subtotal</th>
+                                            <th style="padding: 12px;">Action</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding:15px; display:flex; align-items:center; gap:15px;">
+                                                <img src="//timeaccess-store.com/cdn/shop/files/T137.410.11.031.00FS.jpg?v=1737527856&width=1080"
+                                                    style="width:50px; height:50px; object-fit:cover; border-radius:4px;">
+                                                <div>
+                                                    <div style="font-weight:600;">Cotton Crewneck T-Shirts (Pack of 50)
+                                                    </div>
+                                                    <div class="fs-xs mt-1">PROD-102
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="padding:15px;">$250.00</td>
+                                            <td style="padding:15px;">
+                                                <input type="number" value="5" min="5"
+                                                    style="width:60px; padding:5px; text-align:center;">
+                                            </td>
+                                            <td style="padding:15px; font-weight:600;">$1250.00</td>
+                                            <td style="padding:15px; text-align: left;">
+                                                <button class=" text-center" type="button" aria-label="Delete">
+                                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                                        stroke="#ef4444" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4 7h16" stroke-width="1.8" stroke-linecap="round">
+                                                        </path>
+                                                        <path d="M10 11v5" stroke-width="1.7" stroke-linecap="round">
+                                                        </path>
+                                                        <path d="M14 11v5" stroke-width="1.7" stroke-linecap="round">
+                                                        </path>
+                                                        <path
+                                                            d="M9 7V5.2C9 4.55 9.55 4 10.2 4h3.6C14.45 4 15 4.55 15 5.2V7"
+                                                            stroke-width="1.8" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                        <path
+                                                            d="M6.5 7l.75 11.2C7.35 19.75 8.35 21 9.9 21h4.2c1.55 0 2.55-1.25 2.65-2.8L17.5 7"
+                                                            stroke-width="1.8" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:15px; display:flex; align-items:center; gap:15px;">
+                                                <img src="//timeaccess-store.com/cdn/shop/files/T137.410.11.031.00FS.jpg?v=1737527856&width=1080"
+                                                    style="width:50px; height:50px; object-fit:cover; border-radius:4px;">
+                                                <div>
+                                                    <div style="font-weight:600;">Cotton Crewneck T-Shirts (Pack of 50)
+                                                    </div>
+                                                    <div class="fs-xs mt-1">PROD-102
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="padding:15px;">$250.00</td>
+                                            <td style="padding:15px;">
+                                                <input type="number" value="5" min="5"
+                                                    style="width:60px; padding:5px; text-align:center;">
+                                            </td>
+                                            <td style="padding:15px; font-weight:600;">$1250.00</td>
+                                            <td style="padding:15px; text-align: left;">
+                                                <button class=" text-center" type="button" aria-label="Delete">
+                                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                                        stroke="#ef4444" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4 7h16" stroke-width="1.8" stroke-linecap="round">
+                                                        </path>
+                                                        <path d="M10 11v5" stroke-width="1.7" stroke-linecap="round">
+                                                        </path>
+                                                        <path d="M14 11v5" stroke-width="1.7" stroke-linecap="round">
+                                                        </path>
+                                                        <path
+                                                            d="M9 7V5.2C9 4.55 9.55 4 10.2 4h3.6C14.45 4 15 4.55 15 5.2V7"
+                                                            stroke-width="1.8" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                        <path
+                                                            d="M6.5 7l.75 11.2C7.35 19.75 8.35 21 9.9 21h4.2c1.55 0 2.55-1.25 2.65-2.8L17.5 7"
+                                                            stroke-width="1.8" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:15px; display:flex; align-items:center; gap:15px;">
+                                                <img src="//timeaccess-store.com/cdn/shop/files/T116.417.16.092.00-E.jpg?v=1781863432&width=1000"
+                                                    style="width:50px; height:50px; object-fit:cover; border-radius:4px;">
+                                                <div>
+                                                    <div style="font-weight:600;">Cotton Crewneck T-Shirts (Pack of 50)
+                                                    </div>
+                                                    <div class="fs-xs mt-1">PROD-102
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="padding:15px;">$250.00</td>
+                                            <td style="padding:15px;">
+                                                <input type="number" value="5" min="5"
+                                                    style="width:60px; padding:5px; text-align:center;">
+                                            </td>
+                                            <td style="padding:15px; font-weight:600;">$1250.00</td>
+                                            <td style="padding:15px; text-align: left;">
+                                                <button class=" text-center" type="button" aria-label="Delete">
+                                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                                        stroke="#ef4444" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4 7h16" stroke-width="1.8" stroke-linecap="round">
+                                                        </path>
+                                                        <path d="M10 11v5" stroke-width="1.7" stroke-linecap="round">
+                                                        </path>
+                                                        <path d="M14 11v5" stroke-width="1.7" stroke-linecap="round">
+                                                        </path>
+                                                        <path
+                                                            d="M9 7V5.2C9 4.55 9.55 4 10.2 4h3.6C14.45 4 15 4.55 15 5.2V7"
+                                                            stroke-width="1.8" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                        <path
+                                                            d="M6.5 7l.75 11.2C7.35 19.75 8.35 21 9.9 21h4.2c1.55 0 2.55-1.25 2.65-2.8L17.5 7"
+                                                            stroke-width="1.8" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:15px; display:flex; align-items:center; gap:15px;">
+                                                <img src="//timeaccess-store.com/cdn/shop/files/T116.417.16.092.00-E.jpg?v=1781863432&width=1000"
+                                                    style="width:50px; height:50px; object-fit:cover; border-radius:4px;">
+                                                <div>
+                                                    <div style="font-weight:600;">Cotton Crewneck T-Shirts (Pack of 50)
+                                                    </div>
+                                                    <div class="fs-xs mt-1">PROD-102
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="padding:15px;">$250.00</td>
+                                            <td style="padding:15px;">
+                                                <input type="number" value="5" min="5"
+                                                    style="width:60px; padding:5px; text-align:center;">
+                                            </td>
+                                            <td style="padding:15px; font-weight:600;">$1250.00</td>
+                                            <td style="padding:15px; text-align: left;">
+                                                <button class=" text-center" type="button" aria-label="Delete">
+                                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                                        stroke="#ef4444" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4 7h16" stroke-width="1.8" stroke-linecap="round">
+                                                        </path>
+                                                        <path d="M10 11v5" stroke-width="1.7" stroke-linecap="round">
+                                                        </path>
+                                                        <path d="M14 11v5" stroke-width="1.7" stroke-linecap="round">
+                                                        </path>
+                                                        <path
+                                                            d="M9 7V5.2C9 4.55 9.55 4 10.2 4h3.6C14.45 4 15 4.55 15 5.2V7"
+                                                            stroke-width="1.8" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                        <path
+                                                            d="M6.5 7l.75 11.2C7.35 19.75 8.35 21 9.9 21h4.2c1.55 0 2.55-1.25 2.65-2.8L17.5 7"
+                                                            stroke-width="1.8" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div id="emptyCartMsg"
+                                    style="padding: 30px; text-align: center; color: var(--text-muted); display: none;">
+                                    Your B2B Cart is empty.</div>
+                            </div>
+                            <div class="card-wrap radius-xl">
+                                <div class="box-panel card">
+                                    <h3 class="title">Order Summary</h3>
+                                    <div class="flex-column gap-3 mt-5">
+                                        <div class="summary-line flex-between gap-2"><span>Subtotal Items:</span><span
+                                                id="summarySubtotal">$1250.00</span></div>
+                                        <div class="summary-line flex-between gap-3"><span>Est. Wholesale Tax
+                                                (VAT):</span><span>$0.00</span>
+                                        </div>
+                                        <div class="summary-total  flex-between gap-3">
+                                            <h4>Grand
+                                                Total:</h4>
+                                            <h4 id="summaryTotal">$1250.00</h4>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary btn-fs-md mt-5" style="width: 100%;"
+                                        >Proceed To Checkout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+
+
+        <!--===========================================================-->
+        <!--================||  Footer Section Here  ||=============== -->
+        <!--===========================================================-->
+        <footer>
+            <div class="container">
+                <div class="footer-wrap flex-between">
+                    <p>© 2026 <span>B2B Wholesale Portal</span>. All Rights Reserved.</p>
+                    <p class="powered-by">Powered by <a
+                            href="https://www.xsellencebdltd.com/"><span>xsellencebdltd</span></a></p>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

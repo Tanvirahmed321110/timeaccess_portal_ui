@@ -9,7 +9,10 @@
     transition: var(--transition-base);
     font-family: inherit;
 }
-
+.btn-fs-md.btn{
+    font-size: var(--fs-md);
+    padding: 14px 20px;
+}
 .btn-primary{
     background-color: var(--btn-primary-bg);
     background-color: var(--btn-primary-bg);
