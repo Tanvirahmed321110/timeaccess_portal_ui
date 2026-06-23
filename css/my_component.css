@@ -30,15 +30,18 @@
     outline: none;
     width: 100%;
     font-size: var(--fs-sm);
-    padding: 12px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
+    padding: 11px 16px;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-xs);
     outline: none;
     transition: var(--transition-base);
     font-family: inherit;
+    outline: none;
 }
 .input-group input:focus {
-    box-shadow: rgba(78, 70, 229, 0.204) 0px 0px 0px 3px;
+    box-shadow: rgba(0, 0, 0, 0.11) 0px 0px 0px 3px;
+    border-color: transparent;
+    outline: none;
 }
 
 

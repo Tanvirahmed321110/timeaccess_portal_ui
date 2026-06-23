@@ -1,5 +1,250 @@
 header,
-footer{
+footer {
     background-color: var(--color-primary);
-    padding: 12px 0;
+    padding: 16px 0;
+}
+
+
+
+/*
+=========================
+    Header Start Here
+=========================
+*/
+header .menus {
+    flex: 1;
+}
+
+header .menus a {
+    font-size: var(--fs-sm);
+    color: var(--color-white);
+    opacity: .7;
+    transition: var(--transition-base);
+}
+
+header .menus a.active {
+    font-weight: 600;
+}
+
+header .menus a.active,
+header .menus a:hover {
+    opacity: .9;
+}
+
+header .logo,
+header .nav-icons {
+    width: 12%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+header .logo {
+    justify-content: flex-start;
+    color: var(--color-text-light);
+    font-weight: var(--fw-700);
+    font-size: var(--fs-xl);
+}
+
+header .logo span {
+    color: var(--color-secondary);
+    font-weight: var(--fw-700);
+    margin-left: 4px;
+    letter-spacing: .4px;
+}
+
+
+header .cart-icon-btn {
+    background-color: rgba(240, 248, 255, 0.914);
+    background-color: var(--btn-primary-hover);
+    width: 42px;
+    height: 42px;
+    position: relative;
+    border-radius: var(--radius-round);
+    transition: var(--transition-base);
+}
+
+header .cart-icon-btn:hover {
+    background-color: #000;
+}
+
+header .cart-icon-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+header .cart-icon-btn svg path {
+    stroke: var(--color-text-light);
+}
+
+header .cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    display: inline-block;
+    padding: 2px 4px;
+    border-radius: var(--radius-round);
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    font-weight: 600;
+    font-size: var(--fs-low);
+    animation: cartCountPulseBounce 1.3s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes cartCountPulseBounce {
+    0% {
+        box-shadow: 0 0 0 0 rgba(252, 90, 49, 0.45);
+    }
+
+    40% {
+        box-shadow: 0 0 0 7px rgba(252, 90, 49, 0);
+    }
+
+    70% {
+        box-shadow: 0 0 0 0 rgba(252, 90, 49, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(252, 90, 49, 0);
+    }
+}
+
+
+
+
+
+/*
+=========================
+    Footer Start Here
+=========================
+*/
+footer .powered-by {
+    color: var(--color-text-desc);
+    font-size: var(--fs-sm);
+}
+
+footer .powered-by span {
+    color: var(--color-text-gold);
+    opacity: .75;
+}
+
+footer {
+    color: var(--color-text-desc);
+}
+
+
+.cart-btn,
+.primary-btn {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-text-primary);
+    padding: 9px 18px;
+    border-radius: var(--radius-xs);
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.cart-btn:hover,
+.cart-btn.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.primary-btn {
+    padding: 10px 20px;
+}
+
+
+
+
+/*
+================================
+    Filter Section Start Here
+===============================
+*/
+.filter-sec-wrap {
+    padding: 24px;
+    background-color: var(--color-bg-white);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+}
+
+.filter-sec .view-toggle button {
+    padding: 10px 10px;
+    background-color: #ededed;
+    border-radius: var(--radius-xs);
+    border: 1px solid var(--border-light);
+}
+
+.filter-sec .view-toggle button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.view-toggle button svg,
+.view-toggle button svg path,
+.view-toggle button svg rect {
+    stroke: var(--color-text-primary);
+}
+
+.view-toggle button.active,.view-toggle button:hover {
+    background-color: var(--color-primary);
+}
+
+.view-toggle button:hover svg,
+.view-toggle button.active svg,
+.view-toggle button:hover svg path,
+.view-toggle button.active svg path,
+.view-toggle button:hover svg rect,
+.view-toggle button.active svg rect {
+    stroke: var(--color-text-light);
+}
+
+.filter-sec .filter-options select {
+    padding: 11px;
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    outline: none;
+    background: white;
+    cursor: pointer;
+}
+.filter-sec  .search-input {
+    width: 25%;
+    min-width: 400px;
+}
+
+
+
+
+
+
+
+
+/*
+================================
+    Filter Section Start Here
+===============================
+*/
+.product-sec-wrap{
+    background-color: var(--color-bg-white);
+    padding: 24px;
+    margin-top: 32px;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-md);
+}
+
+
+.product-card{
+    background-color: var(--border-light);
+    padding: 12px;
+    border-radius: var(--radius-xs);
+    border: 1px solid var(--border-primary);
+    position: relative;
+}
+
+.product-card .top{
+    height: 200px;
+    background-color: var(--color-white);
 }

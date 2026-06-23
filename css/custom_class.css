@@ -1,6 +1,6 @@
 /* Font Awesome Icon CDN */
 @import url("https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css");
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 
 :root {
@@ -27,6 +27,7 @@
 
 
     /* Bg Colors */
+    --color-bg-white: #fff;
     --color-bg-primary: #F6F5F4;
     --color-bg-secondary: #F6F5F4;
     --color-bg-card: #FAFAF9;
@@ -37,10 +38,12 @@
     --color-text-secondary: #4A4745;
     --color-text-muted: #8A8581;
     --color-text-white: #ffffff;
+    --color-text-light:#ededed;
     --color-text-desc: #6F6A66;
     --color-text-link: #FC5A31;
     --color-text-danger: #EF4444;
     --color-text-success: #16A34A;
+    --color-text-gold: gold;
     --color-text-placeholder: #A8A29E;
 
 
@@ -166,7 +169,7 @@
     --fw-600: 600;
     --fw-700: 700;
 
-    --font-inter: "Inter";
+    --font-primary:  "Montserrat", sans-serif;
 
 
     /*=============//  Gradient Shade  //=============*/
@@ -176,6 +179,7 @@
 
     /*=============//  Box Shadow  //=============*/
     --shadow-1: 0 0 24px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
 
 
 
@@ -220,7 +224,7 @@ html {
 
 body {
     font-size: var(--fs-sm);
-    font-family: var(--font-inter);
+    font-family: var(--font-primary);
     font-weight: var(--fw-400);
     color: var(--color-text-secondary);
     min-width: 374px;
@@ -229,6 +233,7 @@ body {
     display: flex;
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: .2px;
 }
 
 footer{margin-top: auto;}

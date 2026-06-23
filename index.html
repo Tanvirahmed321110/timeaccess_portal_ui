@@ -14,39 +14,166 @@
 
         <header>
             <div class="container">
-                <div class="header-wrap flex-between">
+                <div class="header-wrap flex-between gap-4">
+
+                    <!--========== Header Logo =========-->
                     <div class="logo">B2B<span>WHOLESALE</span></div>
-                    <ul class="d-flex gap-4">
-                        <li><a href="#" id="nav-home" class="active" onclick="switchPage('portal-page')">Products
+
+                    <!--======== Nav Menu Here ========-->
+                    <ul class="d-flex gap-5 menus flex-center">
+                        <li><a href="#" class="active" onclick="switchPage('portal-page')">Products
                                 Portal</a></li>
-                        <li><a href="#" id="nav-profile">Wholesaler Profile</a>
+                        <li><a href="#">Wholesaler Profile</a>
                         </li>
                     </ul>
+
+                    <!--========== Cart Icon ========== -->
                     <div class="nav-icons">
-                        <a href="#" class="cart-icon-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 5h2.1a1.5 1.5 0 0 1 1.45 1.12L8 8"></path>
+                        <a href="#" class="cart-icon-btn flex-center">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Sophisticated, solid structured luxury bag/cart silhouette -->
                                 <path
-                                    d="M8 8h12.2a1 1 0 0 1 .96 1.28l-1.55 5.45A2.5 2.5 0 0 1 17.2 16.5H10.4a2.5 2.5 0 0 1-2.43-1.91L6.1 6.12">
-                                </path>
-                                <path d="M10 11h8.5"></path>
-                                <path d="M10.8 14h6.5"></path>
-                                <circle cx="10.5" cy="20" r="1.35"></circle>
-                                <circle cx="18" cy="20" r="1.35"></circle>
+                                    d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
+                                    fill="currentColor" opacity="0.08" />
                                 <path
-                                    d="M15.5 4.5l.55 1.15 1.25.18-.9.88.22 1.24-1.12-.59-1.12.59.22-1.24-.9-.88 1.25-.18.55-1.15z"
-                                    fill="currentColor" stroke="none"></path>
+                                    d="M19 7H5L3.5 15.5C3.2 17.5 4.7 19.2 6.8 19.2H17.2C19.3 19.2 20.8 17.5 20.5 15.5L19 7z"
+                                    stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                                <!-- Perfect geometric structural handle -->
+                                <path d="M8.5 7V5.5C8.5 3.6 10.1 2 12 2v0c1.9 0 3.5 1.6 3.5 3.5V7" stroke="currentColor"
+                                    stroke-width="1.6" stroke-linecap="round" />
                             </svg>
-                            <span class="cart-count" id="cartCount">0</span>
+
+                            <!-- cart count/batch -->
+                            <span class="cart-count" id="cartCount">12</span>
                         </a>
                     </div>
+
                 </div>
             </div>
         </header>
 
         <main>
-            main
+
+
+
+            <!--===========================================================-->
+            <!--================||  Filter Section Here  ||=============== -->
+            <!--===========================================================-->
+            <section class="filter-sec mt-7">
+                <div class="container">
+                    <div class="filter-sec-wrap">
+
+                        <!-- Category Buttons Here -->
+                        <div class="category-buttons d-flex gap-5 flex-wrap" id="categoryContainer">
+                            <button class="cart-btn active" onclick="filterCategory('all', this)">All
+                                Categories</button>
+                            <button class="cart-btn" onclick="filterCategory('electronics', this)">Electronics</button>
+                            <button class="cart-btn" onclick="filterCategory('apparel', this)">Apparel &amp;
+                                Clothing</button>
+                            <button class="cart-btn" onclick="filterCategory('home', this)">Home &amp; Kitchen</button>
+                            <button class="cart-btn" onclick="filterCategory('fitness', this)">Sports &amp;
+                                Fitness</button>
+                        </div>
+
+                        <div class="search-sort-bar mt-6 flex-between gap-7">
+
+                            <!-- Search Input Here -->
+                            <div class="search-box input-group">
+                                <input type="text" class="search-input" id="searchInput" oninput="searchProducts()"
+                                    placeholder="Search by Product Name or Item ID ">
+                                <i class="fas fa-search"></i>
+                            </div>
+
+                            <div class="filter-options d-flex gap-6">
+                                <div>
+                                    <select id="sortSelect" onchange="sortProducts()">
+                                        <option value="default">Default Sorting</option>
+                                        <option value="low-high">Price: Low to High</option>
+                                        <option value="high-low">Price: High to Low</option>
+                                    </select>
+                                </div>
+
+
+                                <!-- Grid and List View  -->
+                                <div class="view-toggle d-flex gap-1">
+
+                                    <!-- Grid View -->
+                                    <button class="flex-center active" id="gridBtn" class="active" type="button"
+                                        aria-label="Grid View">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- Top Left -->
+                                            <rect x="3.5" y="3.5" width="7" height="7" rx="2" stroke="currentColor"
+                                                stroke-width="1.6" stroke-linejoin="round" />
+                                            <!-- Top Right -->
+                                            <rect x="13.5" y="3.5" width="7" height="7" rx="2" stroke="currentColor"
+                                                stroke-width="1.6" stroke-linejoin="round" />
+                                            <!-- Bottom Left -->
+                                            <rect x="3.5" y="13.5" width="7" height="7" rx="2" stroke="currentColor"
+                                                stroke-width="1.6" stroke-linejoin="round" />
+                                            <!-- Bottom Right -->
+                                            <rect x="13.5" y="13.5" width="7" height="7" rx="2" stroke="currentColor"
+                                                stroke-width="1.6" stroke-linejoin="round" />
+                                        </svg>
+
+                                    </button>
+
+                                    <!-- List view -->
+                                    <button class="flex-center" id="listBtn" type="button" aria-label="List View">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- Row 1 -->
+                                            <rect x="3.5" y="4" width="4" height="4" rx="1.2" stroke="currentColor"
+                                                stroke-width="1.6" stroke-linejoin="round" />
+                                            <path d="M11 5H20.5" stroke="currentColor" stroke-width="1.6"
+                                                stroke-linecap="round" />
+
+                                            <!-- Row 2 -->
+                                            <rect x="3.5" y="10" width="4" height="4" rx="1.2" stroke="currentColor"
+                                                stroke-width="1.6" stroke-linejoin="round" />
+                                            <path d="M11 11H20.5" stroke="currentColor" stroke-width="1.6"
+                                                stroke-linecap="round" />
+
+                                            <!-- Row 3 -->
+                                            <rect x="3.5" y="16" width="4" height="4" rx="1.2" stroke="currentColor"
+                                                stroke-width="1.6" stroke-linejoin="round" />
+                                            <path d="M11 17H17.5" stroke="currentColor" stroke-width="1.6"
+                                                stroke-linecap="round" opacity="0.8" />
+                                        </svg>
+
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!--============================================================-->
+            <!--================||  Product Section Here  ||=============== -->
+            <!--============================================================-->
+
+            <section class="product-sec">
+                <div class="container">
+                    <div class="product-sec-wrap">
+
+                        <div class="contents">
+                            <!--===================================||  Grid View Products Here  ||====================================-->
+                            <div class="content active grid-4 gpa-4">
+
+                                <!--================= single product card ===============-->
+                                <div class="product-card">
+                                    <div class="top"></div>
+                                    <div class="bottom-content"></div>
+                                </div>
+                            </div>
+
+                            <div class="content"></div>
+                            <!--===================================||  List View Products Here  ||====================================-->
+                        </div>
+                    </div>
+
+                </div>
+            </section>
         </main>
 
 
@@ -54,7 +181,8 @@
             <div class="container">
                 <div class="footer-wrap flex-between">
                     <p>© 2026 <span>B2B Wholesale Portal</span>. All Rights Reserved.</p>
-                    <p class="powered-by">Powered by <a href="#">POWER<span>X</span></a></p>
+                    <p class="powered-by">Powered by <a
+                            href="https://www.xsellencebdltd.com/"><span>xsellencebdltd</span></a></p>
                 </div>
             </div>
         </footer>
