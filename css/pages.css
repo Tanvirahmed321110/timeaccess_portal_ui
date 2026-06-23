@@ -209,7 +209,7 @@ footer {
 
 .filter-sec .filter-options select {
     padding: 11px;
-    border: 1px solid var(--border-primary);
+    border: 1px solid var(--border-secondary);
     border-radius: 4px;
     outline: none;
     background: white;
@@ -219,6 +219,7 @@ footer {
 .filter-sec .search-input {
     width: 25%;
     min-width: 400px;
+    border-color: var(--border-secondary);
 }
 
 

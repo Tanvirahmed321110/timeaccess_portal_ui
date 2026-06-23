@@ -12,6 +12,10 @@
 
     <body>
 
+
+        <!--===========================================================-->
+        <!--================||  Header Section Here  ||=============== -->
+        <!--===========================================================-->
         <header>
             <div class="container">
                 <div class="header-wrap flex-between gap-4">
@@ -75,7 +79,7 @@
                                 Fitness</button>
                         </div>
 
-                        <div class="search-sort-bar mt-6 flex-between gap-7">
+                        <div class="search-sort-bar mt-6 flex-between flex-wrap gap-sm-4 gap-7">
 
                             <!-- Search Input Here -->
                             <div class="search-box input-group">
@@ -148,17 +152,19 @@
             </section>
 
 
+
+
+
             <!--============================================================-->
             <!--================||  Product Section Here  ||=============== -->
             <!--============================================================-->
-
             <section class="product-sec">
                 <div class="container">
                     <div class="product-sec-wrap">
 
                         <div class="contents">
                             <!--===================================||  Grid View Products Here  ||====================================-->
-                            <div class="content active grid-5 gap-5">
+                            <div class="content active grid-5 grid-lg-4 grid-sm-2  gap-lg-4 gap-5">
 
                                 <!--================= single product card ===============-->
                                 <div class="product-card">
@@ -941,8 +947,31 @@
 
                             </div>
 
-                            <div class="content"></div>
                             <!--===================================||  List View Products Here  ||====================================-->
+                            <div class="content"></div>
+
+                            <!--============== Pagination (per page at least 30 item show)=============-->
+                            <div class="d-flex align-end justify-end mt-7">
+                                <nav class="pagination d-flex gap-4 " aria-label="Page navigation">
+                                    <a href="#" class="page prev"><svg viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="1.8"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></a>
+                                    <ul class="d-flex gap-2">
+                                        <li><a href="#" class="page ">1</a></li>
+                                        <li><a href="#" class="page active">2</a></li>
+                                        <li><a href="#" class="page">3</a></li>
+                                        <li><span class="page jump">...</span></li>
+                                        <li><a href="#" class="page">12</a></li>
+                                    </ul>
+                                    <a href="#" class="page next"><svg viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="1.8"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></a>
+                                </nav>
+                            </div>
                         </div>
                     </div>
 
