@@ -16,58 +16,91 @@
     --space-7: 32px;
 
 
+    /* Brand Color */
+    --color-primary: #1C1B1B;
+    --color-primary-hover: #0F0E0E;
 
-    --color-primary: #0F4638;
-    --color-primary-hover: #0F4638;
-    --color-secondary: #FC5A31;
-    --color-secondary-hover: #FC5A31;
-    --color-white: #fff;
+    --color-secondary: #f94c43;
+    --color-secondary-hover: #f94c43;
 
-    /* Bg color */
-    --color-bg-body: #fff;
-    --color-bg-primary: #fff;
-    --color-bg-secondary: #f7f7f7;
-    --color-bg-card: #f9fafb;
+    --color-white: #ffffff;
+
+
+    /* Bg Colors */
+    --color-bg-primary: #F6F5F4;
+    --color-bg-secondary: #F6F5F4;
+    --color-bg-card: #FAFAF9;
     --color-bg-navbar: #ffffff;
 
-    /* Text */
-    --color-text-primary: #111827;
-    --color-text-secondary: #4b5563;
-    --color-text-muted: #9ca3af;
+    /* Text Colors */
+    --color-text-primary: #1C1B1B;
+    --color-text-secondary: #4A4745;
+    --color-text-muted: #8A8581;
     --color-text-white: #ffffff;
-    --color-text-desc: #737880;
-    --color-text-link: #3b82f6;
-    --color-text-danger: #ef4444;
-    --color-text-success: #22c55e;
-    --color-text-placeholder: #9ca3af;
+    --color-text-desc: #6F6A66;
+    --color-text-link: #FC5A31;
+    --color-text-danger: #EF4444;
+    --color-text-success: #16A34A;
+    --color-text-placeholder: #A8A29E;
 
-    /* Border */
-    --border-light: #fafafa;
-    --border-primary: #e5e7eb;
-    --border-secondary: #e5e7eb;
-    --border-danger: red;
 
+    /* Border Colors */
+    --border-light: #F4F2F1;
+    --border-primary: #E7E3E0;
+    --border-secondary: #D8D2CE;
+    --border-danger: #EF4444;
 
     /*=============//  Primary Button  //=============*/
-    --btn-primary-bg: var(--color-primary);
+    --btn-primary-bg: #1C1B1B;
     --btn-primary-text: #ffffff;
-    --btn-primary-hover: #2563eb;
-    --btn-primary-border: #3b82f6;
+    --btn-primary-hover: #0F0E0E;
+    --btn-primary-border: #1C1B1B;
 
 
     /*=============//  Secondary Button  //=============*/
     --btn-secondary-bg: transparent;
-    --btn-secondary-text: #3b82f6;
-    --btn-secondary-border: #3b82f6;
-    --btn-secondary-hover-bg: #3b82f6;
+    --btn-secondary-text: #FC5A31;
+    --btn-secondary-border: #FC5A31;
+    --btn-secondary-hover-bg: #FC5A31;
     --btn-secondary-hover-text: #ffffff;
 
 
     /*=============//  Danger Button  //=============*/
-    --btn-danger-bg: #ef4444;
+    --btn-danger-bg: #EF4444;
     --btn-danger-text: #ffffff;
-    --btn-danger-hover: #dc2626;
-    --btn-danger-border: #ef4444;
+    --btn-danger-hover: #DC2626;
+    --btn-danger-border: #EF4444;
+
+
+    /*=============//  Modal Color  //=============*/
+    --modal-overlay: rgba(28, 27, 27, 0.45);
+    --modal-bg: #ffffff;
+
+
+    /*=============//  Gradient Shade  //=============*/
+    --gradient-1: linear-gradient(135deg, #1C1B1B 0%, #3A3633 52%, #FC5A31 100%);
+
+    /*=============//  Box Shadow  //=============*/
+    --shadow-1: 0 12px 32px rgba(28, 27, 27, 0.10);
+
+
+
+    /*=============//  Components Color Fix  //=============*/
+    --navbar-bg: var(--color-bg-navbar);
+    --navbar-color: var(--color-text-primary);
+    --navbar-hover: var(--color-secondary);
+
+    --card-bg: var(--color-bg-card);
+    --card-border: var(--border-light);
+    --card-shadow: var(--shadow-1);
+
+    --input-bg: #ffffff;
+    --input-border: var(--border-primary);
+    --input-border-focus: var(--color-primary);
+    --input-color: var(--color-text-primary);
+    --input-placeholder: var(--color-text-placeholder);
+    --input-outline: #1C1B1B;
+    --input-shadow-focus: 0 0 0 0.2rem rgba(28, 27, 27, 0.16);
 
 
 
@@ -163,26 +196,6 @@
     --transition-slow: 0.5s ease;
 
 
-    /* =========================
-       Components
-    ========================== */
-    --navbar-bg: var(--bg-navbar);
-    --navbar-color: var(--text-primary);
-    --navbar-hover: var(--my-accent);
-
-    --card-bg: var(--bg-card);
-    --card-border: var(--border-light);
-    --card-radius: var(--border-radius-md);
-    --card-shadow: var(--shadow-1);
-
-    --input-bg: #fff;
-    --input-border: var(--border-primary);
-    --input-border-focus: var(--color-primary);
-    --input-color: var(--color-text-primary);
-    --input-placeholder: var(--color-text-placeholder);
-    --input-outline:#333;
-    --input-radius: var(--radius-sm);
-    --input-shadow-focus: 0 0 0 0.2rem rgba(15, 70, 56, 0.25);
 }
 
 
@@ -201,7 +214,7 @@
 /*________  Tag Style  ________ */
 html {
     scroll-behavior: smooth;
-    height: 100%;
+     min-height: 100%;
     font-size: 100%;
 }
 
@@ -211,12 +224,14 @@ body {
     font-weight: var(--fw-400);
     color: var(--color-text-secondary);
     min-width: 374px;
-    background-color: var(--color-bg-body);
-    min-height: 100%;
+    background-color: var(--color-bg-primary);
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
 }
+
+footer{margin-top: auto;}
 
 ::selection {
     background: var(--color-primary);
@@ -4151,7 +4166,7 @@ tr {
     }
 
     .grid-xs-1 {
-        grid-template-columns: repeat(1, 1fr) ;
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .grid-xs-2 {
@@ -4165,6 +4180,7 @@ tr {
     .grid-xs-4 {
         grid-template-columns: repeat(4, 1fr);
     }
+
     .grid-xs-5 {
         grid-template-columns: repeat(5, 1fr);
     }

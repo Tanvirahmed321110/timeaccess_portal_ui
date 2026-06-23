@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Wholesaler Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CSS VARIABLES & THEME --- */
+        :root {
+            --primary-color: #1C1B1B;
+            --accent-color: #E50914;
+            --bg-light: #F9F9F9;
+            --text-dark: #1C1B1B;
+            --text-muted: #71717A;
+            --border-color: #E4E4E7;
+            --card-bg: #FFFFFF;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Flexbox structure to keep footer at bottom */
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        nav {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        nav .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #E4E4E7;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: white;
+            border-bottom: 2px solid white;
+            padding-bottom: 5px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-icons a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 5%;
+            flex: 1 0 auto; /* Ensures container stretches to push footer down */
+        }
+
+        /* --- FILTER & CONTROL PANEL --- */
+        .controls-section {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .category-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .cat-btn {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .search-sort-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 12px;
+            color: var(--text-muted);
+        }
+
+        .filter-options {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .filter-options select {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            outline: none;
+            background: white;
+            cursor: pointer;
+        }
+
+        .view-toggle button {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            color: var(--text-dark);
+        }
+
+        .view-toggle button.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* --- PRODUCT CARD GRID/LIST SYSTEM --- */
+        .products-container {
+            transition: all 0.3s ease;
+        }
+
+        .products-container.grid-view {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .products-container.list-view {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .tag-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #10B981;
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .product-details {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-id {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .product-name:hover {
+            color: var(--accent-color);
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .qty-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .qty-wrapper label {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .qty-input {
+            width: 80px;
+            padding: 6px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .qty-msg {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: #f4f4f5;
+        }
+
+        .btn-dark {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: #333232;
+        }
+
+        /* List View Overrides */
+        .products-container.list-view .product-card {
+            flex-direction: row;
+            height: 160px;
+        }
+
+        .products-container.list-view .product-image {
+            width: 200px;
+            height: 100%;
+        }
+
+        .products-container.list-view .product-details {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .products-container.list-view .card-actions {
+            flex-direction: column;
+            min-width: 180px;
+            justify-content: center;
+        }
+
+        /* --- PAGES SYSTEM --- */
+        .page {
+            display: none;
+        }
+
+        .page.active-page {
+            display: block;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .two-column-layout { grid-template-columns: 1fr; }
+            .products-container.list-view .product-card { flex-direction: column; height: auto; }
+            .products-container.list-view .product-image { width: 100%; height: 200px; }
+            .products-container.list-view .product-details { flex-direction: column; align-items: flex-start; }
+            .products-container.list-view .card-actions { width: 100%; }
+        }
+
+        .box-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .summary-total {
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 20px;
+        }
+
+        .avatar-section {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .avatar-placeholder {
+            width: 120px;
+            height: 120px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 15px;
+        }
+
+        .confirm-box {
+            text-align: center;
+            padding: 50px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .confirm-box i {
+            font-size: 4rem;
+            color: #10B981;
+            margin-bottom: 20px;
+        }
+
+        /* --- STYLISH B2B FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: #A1A1AA;
+            padding: 20px 5%;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--accent-color);
+            flex-shrink: 0; /* Keeps footer strictly structural at end of viewport */
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-content p span {
+            color: white;
+            font-weight: 600;
+        }
+
+        .powered-by a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .powered-by a span {
+            color: var(--accent-color);
+        }
+
+        .powered-by a:hover {
+            color: #E4E4E7;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" onclick="switchPage('portal-page')">B2B<span>WHOLESALE</span></div>
+        <ul>
+            <li><a href="#" id="nav-home" class="active" onclick="switchPage('portal-page')">Products Portal</a></li>
+            <li><a href="#" id="nav-profile" onclick="switchPage('profile-page')">Wholesaler Profile</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="#" onclick="switchPage('cart-page')" style="font-size: 1.3rem;">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div id="portal-page" class="page active-page">
+            <div class="controls-section">
+                <div class="category-buttons" id="categoryContainer">
+                    <button class="cat-btn active" onclick="filterCategory('all', this)">All Categories</button>
+                    <button class="cat-btn" onclick="filterCategory('electronics', this)">Electronics</button>
+                    <button class="cat-btn" onclick="filterCategory('apparel', this)">Apparel & Clothing</button>
+                    <button class="cat-btn" onclick="filterCategory('home', this)">Home & Kitchen</button>
+                    <button class="cat-btn" onclick="filterCategory('fitness', this)">Sports & Fitness</button>
+                </div>
+
+                <div class="search-sort-bar">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" oninput="searchProducts()" placeholder="Search by Product Name or Item ID (e.g., PROD-101)...">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <div class="filter-options">
+                        <select id="sortSelect" onchange="sortProducts()">
+                            <option value="default">Default Sorting</option>
+                            <option value="low-high">Price: Low to High</option>
+                            <option value="high-low">Price: High to Low</option>
+                        </select>
+
+                        <div class="view-toggle">
+                            <button id="gridBtn" class="active" onclick="setView('grid')"><i class="fas fa-th-large"></i></button>
+                            <button id="listBtn" onclick="setView('list')"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="productsGrid" class="products-container grid-view">
+                </div>
+        </div>
+
+        <div id="details-page" class="page">
+            <button class="btn btn-outline" style="margin-bottom:20px; width:auto;" onclick="switchPage('portal-page')"><i class="fas fa-arrow-left"></i> Back to Portal</button>
+            <div class="box-panel" id="productDetailsContent">
+                </div>
+        </div>
+
+        <div id="cart-page" class="page">
+            <h2 class="page-title">Wholesale Order Cart</h2>
+            <div class="two-column-layout">
+                <div class="box-panel" style="padding:0;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;" id="cartTable">
+                        </table>
+                    <div id="emptyCartMsg" style="padding: 30px; text-align: center; color: var(--text-muted);">Your B2B Cart is empty.</div>
+                </div>
+                <div>
+                    <div class="box-panel">
+                        <h3>Order Summary</h3>
+                        <br>
+                        <div class="summary-line"><span>Subtotal Items:</span><span id="summarySubtotal">$0.00</span></div>
+                        <div class="summary-line"><span>Est. Wholesale Tax (VAT):</span><span>$0.00</span></div>
+                        <div class="summary-total summary-line"><span>Grand Total:</span><span id="summaryTotal">$0.00</span></div>
+                        <br>
+                        <button class="btn btn-dark" style="width: 100%;" onclick="switchPage('checkout-page')">Proceed To Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="checkout-page" class="page">
+            <h2 class="page-title">Secure B2B Checkout</h2>
+            <div class="two-column-layout">
+                <div>
+                    <div class="box-panel">
+                        <h3>Corporate Shipping & Billing Information</h3>
+                        <br>
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="text" value="Apex Global Trade Ltd.">
+                        </div>
+                        <div class="form-group">
+                            <label>Business License / BIN Number</label>
+                            <input type="text" value="BIN-9847294-2026">
+                        </div>
+                        <div class="form-group">
+                            <label>Shipping Warehouse Address</label>
+                            <textarea rows="3">Plot 42, Industrial Zone, Section B, Dhaka, Bangladesh</textarea>
+                        </div>
+                    </div>
+                    <div class="box-panel">
+                        <h3>Payment Options</h3>
+                        <br>
+                        <div class="form-group">
+                            <label><input type="radio" name="payment" checked> Bank Wire Transfer / LC (Letter of Credit)</label>
+                        </div>
+                        <div class="form-group">
+                            <label><input type="radio" name="payment"> Cash on Delivery (Wholesale Account Net 30)</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="box-panel">
+                        <h3>Final Validation</h3>
+                        <br>
+                        <div class="summary-line"><span>Total Due:</span><span class="checkout-total-render">$0.00</span></div>
+                        <br>
+                        <button class="btn btn-dark" style="width:100%; background: #10B981;" onclick="submitOrder()">Confirm & Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="confirm-page" class="page">
+            <div class="confirm-box">
+                <i class="fas fa-check-circle"></i>
+                <h2>Wholesale Order Confirmed!</h2>
+                <p style="margin: 15px 0; color: var(--text-muted);">Thank you for your business. Your order has been registered under invoice ID <strong>#INV-2026-8942</strong>. Our account managers will verify the stock allocation and update your commercial contract invoice shortly.</p>
+                <button class="btn btn-dark" onclick="switchPage('portal-page')" style="width:auto; padding: 10px 30px;">Continue Sourcing</button>
+            </div>
+        </div>
+
+        <div id="profile-page" class="page">
+            <h2 class="page-title">Wholesaler Corporate Profile</h2>
+            <div class="profile-grid">
+                <div class="avatar-section">
+                    <div class="avatar-placeholder"><i class="fas fa-building"></i></div>
+                    <h3>Apex Global Trade</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top:5px;">Verified Tier-1 Buyer</p>
+                </div>
+                <div class="box-panel">
+                    <h3>Account Configuration & Terms</h3>
+                    <br>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group"><label>Primary Contact Person</label><input type="text" value="Rahat Chowdhury"></div>
+                        <div class="form-group"><label>Corporate Email Address</label><input type="email" value="procurement@apexglobal.com"></div>
+                        <div class="form-group"><label>Account Credit Limit</label><input type="text" value="$50,000.00" disabled style="background:#f4f4f5;"></div>
+                        <div class="form-group"><label>Assigned Payment Contract</label><input type="text" value="Net 30 Days Credit" disabled style="background:#f4f4f5;"></div>
+                    </div>
+                    <button class="btn btn-dark" style="width:auto; padding: 10px 25px; margin-top: 15px;">Save Changes</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 <span>B2B Wholesale Portal</span>. All Rights Reserved.</p>
+            <p class="powered-by">Powered by <a href="#">POWER<span>X</span></a></p>
+        </div>
+    </footer>
+
+    <script>
+        const productsData = [
+            { id: "PROD-101", name: "Premium Bulk Wireless Headphones X2", price: 450.00, category: "electronics", tag: "Trending", stock: 120, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" },
+            { id: "PROD-102", name: "Cotton Crewneck T-Shirts (Pack of 50)", price: 250.00, category: "apparel", tag: "Bulk Pack", stock: 80, image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400&q=80" },
+            { id: "PROD-103", name: "Stainless Steel Smart Kettle Pro", price: 890.00, category: "home", tag: "New Arrival", stock: 15, image: "https://images.unsplash.com/photo-1578643463396-0997cb5328c1?w=400&q=80" },
+            { id: "PROD-104", name: "Ergonomic Adjustable Gym Dumbbells", price: 1200.00, category: "fitness", tag: "Heavy Cargo", stock: 8, image: "https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=400&q=80" },
+            { id: "PROD-105", name: "UltraHD 4K Display Panels (Wholesale)", price: 3400.00, category: "electronics", tag: "Fragile", stock: 4, image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&q=80" },
+            { id: "PROD-106", name: "Waterproof Sports Smartwatches V5", price: 620.00, category: "electronics", tag: "Hot Seller", stock: 3, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" }
+        ];
+
+        let cart = [];
+        let activeCategory = 'all';
+
+        window.onload = () => {
+            renderProducts(productsData);
+        };
+
+        function renderProducts(products) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            if(products.length === 0) {
+                grid.innerHTML = `<div style="text-align:center; padding: 40px; grid-column: 1/-1; color: var(--text-muted);">No products match your sourcing criteria.</div>`;
+                return;
+            }
+
+            products.forEach(product => {
+                const minQty = 5;
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image">
+                        <span class="tag-badge">${product.tag}</span>
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-details">
+                        <div>
+                            <div class="product-id">Item ID: ${product.id}</div>
+                            <a href="#" class="product-name" onclick="viewDetails('${product.id}')">${product.name}</a>
+                        </div>
+                        <div>
+                            <div class="product-price">$${product.price.toFixed(2)}</div>
+                            <div class="qty-wrapper">
+                                <label>MOQ Qty:</label>
+                                <input type="number" class="qty-input" id="qty-${product.id}" value="${minQty}" min="${minQty}">
+                                ${product.stock <= 5 ? `<span class="qty-msg"><i class="fas fa-exclamation-triangle"></i> Only ${product.stock} left!</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-outline" onclick="addToCart('${product.id}', false)">Add to Cart</button>
+                            <button class="btn btn-dark" onclick="addToCart('${product.id}', true)">Buy Now</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat, element) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            applyFilters();
+        }
+
+        function searchProducts() {
+            applyFilters();
+        }
+
+        function sortProducts() {
+            applyFilters();
+        }
+
+        function applyFilters() {
+            let filtered = [...productsData];
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+            const sortVal = document.getElementById('sortSelect').value;
+
+            if (activeCategory !== 'all') {
+                filtered = filtered.filter(p => p.category === activeCategory);
+            }
+
+            if (searchQuery) {
+                filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery) || p.id.toLowerCase().includes(searchQuery));
+            }
+
+            if (sortVal === 'low-high') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortVal === 'high-low') {
+                filtered.sort((a, b) => b.price - a.price);
+            }
+
+            renderProducts(filtered);
+        }
+
+        function setView(viewType) {
+            const grid = document.getElementById('productsGrid');
+            const gBtn = document.getElementById('gridBtn');
+            const lBtn = document.getElementById('listBtn');
+
+            if (viewType === 'grid') {
+                grid.className = "products-container grid-view";
+                gBtn.classList.add('active');
+                lBtn.classList.remove('active');
+            } else {
+                grid.className = "products-container list-view";
+                lBtn.classList.add('active');
+                gBtn.classList.remove('active');
+            }
+        }
+
+        function switchPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active-page'));
+            document.getElementById(pageId).classList.add('active-page');
+
+            document.getElementById('nav-home').classList.remove('active');
+            document.getElementById('nav-profile').classList.remove('active');
+
+            if(pageId === 'portal-page') document.getElementById('nav-home').classList.add('active');
+            if(pageId === 'profile-page') document.getElementById('nav-profile').classList.add('active');
+            if(pageId === 'cart-page') updateCartPage();
+        }
+
+        function viewDetails(productId) {
+            const prod = productsData.find(p => p.id === productId);
+            if(!prod) return;
+
+            const targetBox = document.getElementById('productDetailsContent');
+            targetBox.innerHTML = `
+                <div style="display: flex; gap: 40px; flex-wrap: wrap; margin-top:20px;">
+                    <div style="flex: 1; min-width:300px; background: #f4f4f5; text-align:center; border-radius:8px; padding:20px;">
+                        <img src="${prod.image}" style="max-width:100%; max-height:400px; object-fit:contain;">
+                    </div>
+                    <div style="flex: 1; min-width:300px; display:flex; flex-direction:column; justify-content:center;">
+                        <span style="background:var(--primary-color); color:white; padding:4px 10px; font-size:0.8rem; border-radius:4px; width:max-content; margin-bottom:15px;">${prod.tag}</span>
+                        <h1 style="margin-bottom:10px;">${prod.name}</h1>
+                        <p style="color:var(--text-muted); margin-bottom:15px;">Item Serial Number: <strong>${prod.id}</strong></p>
+                        <h2 style="color: var(--primary-color); font-size:2rem; margin-bottom:20px;">$${prod.price.toFixed(2)} <span style="font-size:1rem; color:var(--text-muted);">per bulk unit</span></h2>
+                        <p style="margin-bottom:20px; line-height:1.6;">High-quality specialized B2B commercial merchandise supply item. Ready for rapid logistical dispatch across standard global merchant supply networks.</p>
+                        <div class="qty-wrapper">
+                            <label style="font-size:1rem;">Order Sourcing Target Quantity:</label>
+                            <input type="number" class="qty-input" id="details-qty-${prod.id}" value="5" min="5" style="padding:10px; font-size:1rem;">
+                        </div>
+                        <div class="card-actions" style="max-width: 400px; gap:15px; margin-top:10px;">
+                            <button class="btn btn-outline" style="padding:14px;" onclick="addToCart('${prod.id}', false, true)">Add Bulk To Order</button>
+                            <button class="btn btn-dark" style="padding:14px;" onclick="addToCart('${prod.id}', true, true)">Instant Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            switchPage('details-page');
+        }
+
+        function addToCart(productId, instantCheckout, fromDetails = false) {
+            const product = productsData.find(p => p.id === productId);
+            const inputId = fromDetails ? `details-qty-${productId}` : `qty-${productId}`;
+            const qtyVal = parseInt(document.getElementById(inputId).value) || 5;
+
+            if (qtyVal < 5) {
+                alert("Minimum B2B configuration requires at least 5 quantities of items.");
+                return;
+            }
+
+            const existingIndex = cart.findIndex(item => item.product.id === productId);
+            if(existingIndex > -1) {
+                cart[existingIndex].qty = qtyVal;
+            } else {
+                cart.push({ product, qty: qtyVal });
+            }
+
+            updateCartCount();
+
+            if (instantCheckout) {
+                switchPage('cart-page');
+            } else {
+                alert(`${qtyVal} units of ${product.name} appended to cart invoice ledger.`);
+            }
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.qty, 0);
+            document.getElementById('cartCount').innerText = count;
+        }
+
+        function updateCartPage() {
+            const table = document.getElementById('cartTable');
+            const emptyMsg = document.getElementById('emptyCartMsg');
+
+            if(cart.length === 0) {
+                table.innerHTML = '';
+                emptyMsg.style.display = 'block';
+                calculateCosts(0);
+                return;
+            }
+
+            emptyMsg.style.display = 'none';
+            let tableHTML = `
+                <tr style="background:#f4f4f5; border-bottom:1px solid var(--border-color);">
+                    <th style="padding: 12px;">Product</th>
+                    <th style="padding: 12px;">Price</th>
+                    <th style="padding: 12px;">Quantity</th>
+                    <th style="padding: 12px;">Subtotal</th>
+                    <th style="padding: 12px;">Action</th>
+                </tr>
+            `;
+
+            let runningTotal = 0;
+
+            cart.forEach((item, index) => {
+                const rowTotal = item.product.price * item.qty;
+                runningTotal += rowTotal;
+                tableHTML += `
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding:15px; display:flex; align-items:center; gap:15px;">
+                            <img src="${item.product.image}" style="width:50px; height:50px; object-fit:cover; border-radius:4px;">
+                            <div>
+                                <div style="font-weight:600;">${item.product.name}</div>
+                                <div style="font-size:0.8rem; color:var(--text-muted);">${item.product.id}</div>
+                            </div>
+                        </td>
+                        <td style="padding:15px;">$${item.product.price.toFixed(2)}</td>
+                        <td style="padding:15px;">
+                            <input type="number" value="${item.qty}" min="5" style="width:60px; padding:5px; text-align:center;" onchange="updateCartQty(${index}, this.value)">
+                        </td>
+                        <td style="padding:15px; font-weight:600;">$${rowTotal.toFixed(2)}</td>
+                        <td style="padding:15px;"><button style="background:transparent; border:none; color:var(--accent-color); cursor:pointer;" onclick="removeCartItem(${index})"><i class="fas fa-trash-alt"></i></button></td>
+                    </tr>
+                `;
+            });
+
+            table.innerHTML = tableHTML;
+            calculateCosts(runningTotal);
+        }
+
+        function updateCartQty(index, newQty) {
+            let val = parseInt(newQty);
+            if(val < 5 || isNaN(val)) {
+                alert("Wholesale volumes cannot drop past 5 items.");
+                val = 5;
+            }
+            cart[index].qty = val;
+            updateCartCount();
+            updateCartPage();
+        }
+
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            updateCartPage();
+        }
+
+        function calculateCosts(subtotal) {
+            document.getElementById('summarySubtotal').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('summaryTotal').innerText = `$${subtotal.toFixed(2)}`;
+            document.querySelectorAll('.checkout-total-render').forEach(el => el.innerText = `$${subtotal.toFixed(2)}`);
+        }
+
+        function submitOrder() {
+            if(cart.length === 0) {
+                alert("Cannot generate legal invoice manifest with an empty procurement cart.");
+                return;
+            }
+            cart = [];
+            updateCartCount();
+            switchPage('confirm-page');
+        }
+    </script>
+</body>
+</html>
