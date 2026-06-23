@@ -3506,6 +3506,36 @@ tr {
 
 @media (max-width:768px) {
 
+
+    :root{
+        /*=============//  Font Size  //=============*/
+        --fs-low: 0.6rem;
+        /* 10px */
+        --fs-xs: 0.7rem;
+        /* 12px */
+        --fs-sm: 0.8rem;
+        /* 14px */
+        --fs-md: .95rem;
+        /* 16px */
+        --fs-lg: 1rem;
+        /* 18px */
+        --fs-xl: 1.10rem;
+        /* 20px */
+        --fs-xxl: 1.2rem;
+        /* 24px */
+        --fs-3xl: 1.5rem;
+        /* 32px */
+        --fs-4xl: 1.8rem;
+        /* 36px */
+        --fs-5xl: 2rem;
+        /* 40px */
+    }
+
+    .container {
+    padding: 0 16px;
+    width: 100%;
+}
+
     /* font size */
     .fs-sm-low {
         font-size: var(--fs-low);
