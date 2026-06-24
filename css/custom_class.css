@@ -38,7 +38,7 @@
     --color-text-secondary: #4A4745;
     --color-text-muted: #8A8581;
     --color-text-white: #ffffff;
-    --color-text-light:#ededed;
+    --color-text-light: #ededed;
     --color-text-desc: #6F6A66;
     --color-text-link: #FC5A31;
     --color-text-danger: #EF4444;
@@ -169,7 +169,7 @@
     --fw-600: 600;
     --fw-700: 700;
 
-    --font-primary:  "Montserrat", sans-serif;
+    --font-primary: "Montserrat", sans-serif;
 
 
     /*=============//  Gradient Shade  //=============*/
@@ -218,7 +218,7 @@
 /*________  Tag Style  ________ */
 html {
     scroll-behavior: smooth;
-     min-height: 100%;
+    min-height: 100%;
     font-size: 100%;
 }
 
@@ -236,7 +236,9 @@ body {
     letter-spacing: .2px;
 }
 
-footer{margin-top: auto;}
+footer {
+    margin-top: auto;
+}
 
 ::selection {
     background: var(--color-primary);
@@ -3507,7 +3509,7 @@ tr {
 @media (max-width:768px) {
 
 
-    :root{
+    :root {
         /*=============//  Font Size  //=============*/
         --fs-low: 0.6rem;
         /* 10px */
@@ -3532,9 +3534,9 @@ tr {
     }
 
     .container {
-    padding: 0 16px;
-    width: 100%;
-}
+        padding: 0 16px;
+        width: 100%;
+    }
 
     /* font size */
     .fs-sm-low {
