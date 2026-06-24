@@ -363,23 +363,39 @@ textarea {
         gap: 32px;
     }
 
-    .cart-table-area{
+    .cart-table-area {
         display: grid;
     }
-    .cart-table-area .table-wrap{
+
+    .cart-table-area .table-wrap {
         overflow-x: auto;
     }
 
     .empty-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
-    line-height: 1.4;
-}
-.btn-explore {
-    font-size: var(--fs-sm);
-    padding: 12px 20px;
-}
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 10px;
+        letter-spacing: -0.5px;
+        line-height: 1.4;
+    }
+
+    .btn-explore {
+        font-size: var(--fs-sm);
+        padding: 12px 20px;
+    }
+
+    .profile .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cart-page .box-panel {
+        padding: 16px;
+    }
+
+    .profile .avatar-placeholder {
+        width: 90px;
+        height: 90px;
+    }
 }

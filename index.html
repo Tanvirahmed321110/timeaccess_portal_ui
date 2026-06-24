@@ -22,7 +22,7 @@
 
                     <!-- Menu Icon for Mobile -->
                     <div class="mobile-show desktop-hide">
-                        <button class="menu-btn" type="button" aria-label="Open Menu">
+                        <button class="menu-btn" type="button" id="menu-btn">
                             <svg viewBox="0 0 24 24" width="22" fill="none" stroke="#ededed"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4 6.5h16" stroke-width="2" stroke-linecap="round"></path>
@@ -41,7 +41,8 @@
                     </div>
 
                     <!--======== Nav Menu Here ========-->
-                    <ul class="d-flex gap-5 menus flex-center">
+                    <ul class="d-flex gap-5 menus flex-center" id="menus">
+                        <li class="desktop-hide mobile-show"><h3 style="color: var(--color-text-light);">B2B Portal</h3></li>
                         <li><a href="#" class="active" onclick="switchPage('portal-page')">Products
                                 Portal</a></li>
                         <li><a href="/profile.html">Wholesaler Profile</a>
@@ -178,9 +179,9 @@
                 <div class="container">
                     <div class="product-sec-wrap">
 
-                        <div class="contents" id="grid-list-contents">
+                        <div class="contents">
                             <!--===================================||  Grid View Products Here  ||====================================-->
-                            <div class="content list-contents grid-5 grid-lg-4 grid-sm-2 gap-sm-3 gap-lg-4 gap-6">
+                            <div class="content  grid-5 grid-lg-4 grid-sm-2 gap-sm-3 gap-lg-4 gap-6" id="grid-list-contents">
 
                                 <!--================= single product card ===============-->
                                 <div class="product-card">
@@ -275,20 +276,23 @@
                                         </div>
 
 
-                                            <div class="qty-btns">
-                                        <!-- quantity input -->
-                                        <div class="qty-wrapper d-flex align-center mt-3 gap-2">
-                                            <label class="">Quantity:</label>
-                                            <input type="number" class="qty-input" id="qty-PROD-101" value="5" min="5">
-                                        </div>
+                                        <div class="qty-btns">
+                                            <!-- quantity input -->
+                                            <div class="qty-wrapper d-flex align-center mt-3 gap-2">
+                                                <label class="">Quantity:</label>
+                                                <input type="number" class="qty-input" id="qty-PROD-101" value="5"
+                                                    min="5">
+                                            </div>
 
-                                        <!-- Card Buttons -->
-                                        <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
-                                            <button class="btn btn-outline" onclick="addToCart('PROD-101', false)">Add
-                                                to Cart</button>
-                                            <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
-                                                Now</button>
-                                        </div>
+                                            <!-- Card Buttons -->
+                                            <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
+                                                <button class="btn btn-outline"
+                                                    onclick="addToCart('PROD-101', false)">Add
+                                                    to Cart</button>
+                                                <button class="btn btn-primary"
+                                                    onclick="addToCart('PROD-101', true)">Buy
+                                                    Now</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -329,21 +333,24 @@
                                         </div>
 
 
-                                            <div class="qty-btns">
-                                        <!-- quantity input -->
-                                        <div class="qty-wrapper d-flex align-center mt-3 gap-2">
-                                            <label class="">Quantity:</label>
-                                            <input type="number" class="qty-input" id="qty-PROD-101" value="5" min="5">
-                                        </div>
-
-                                        <!-- Card Buttons -->
-                                        <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
-                                            <button class="btn btn-outline" onclick="addToCart('PROD-101', false)">Add
-                                                to Cart</button>
-                                            <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
-                                                Now</button>
-                                        </div>
+                                        <div class="qty-btns">
+                                            <!-- quantity input -->
+                                            <div class="qty-wrapper d-flex align-center mt-3 gap-2">
+                                                <label class="">Quantity:</label>
+                                                <input type="number" class="qty-input" id="qty-PROD-101" value="5"
+                                                    min="5">
                                             </div>
+
+                                            <!-- Card Buttons -->
+                                            <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
+                                                <button class="btn btn-outline"
+                                                    onclick="addToCart('PROD-101', false)">Add
+                                                    to Cart</button>
+                                                <button class="btn btn-primary"
+                                                    onclick="addToCart('PROD-101', true)">Buy
+                                                    Now</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -383,21 +390,24 @@
                                         </div>
 
 
-                                            <div class="qty-btns">
-                                        <!-- quantity input -->
-                                        <div class="qty-wrapper d-flex align-center mt-3 gap-2">
-                                            <label class="">Quantity:</label>
-                                            <input type="number" class="qty-input" id="qty-PROD-101" value="5" min="5">
-                                        </div>
-
-                                        <!-- Card Buttons -->
-                                        <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
-                                            <button class="btn btn-outline" onclick="addToCart('PROD-101', false)">Add
-                                                to Cart</button>
-                                            <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
-                                                Now</button>
-                                        </div>
+                                        <div class="qty-btns">
+                                            <!-- quantity input -->
+                                            <div class="qty-wrapper d-flex align-center mt-3 gap-2">
+                                                <label class="">Quantity:</label>
+                                                <input type="number" class="qty-input" id="qty-PROD-101" value="5"
+                                                    min="5">
                                             </div>
+
+                                            <!-- Card Buttons -->
+                                            <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
+                                                <button class="btn btn-outline"
+                                                    onclick="addToCart('PROD-101', false)">Add
+                                                    to Cart</button>
+                                                <button class="btn btn-primary"
+                                                    onclick="addToCart('PROD-101', true)">Buy
+                                                    Now</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -437,21 +447,24 @@
                                         </div>
 
 
-                                            <div class="qty-btns">
-                                        <!-- quantity input -->
-                                        <div class="qty-wrapper d-flex align-center mt-3 gap-2">
-                                            <label class="">Quantity:</label>
-                                            <input type="number" class="qty-input" id="qty-PROD-101" value="5" min="5">
-                                        </div>
-
-                                        <!-- Card Buttons -->
-                                        <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
-                                            <button class="btn btn-outline" onclick="addToCart('PROD-101', false)">Add
-                                                to Cart</button>
-                                            <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
-                                                Now</button>
-                                        </div>
+                                        <div class="qty-btns">
+                                            <!-- quantity input -->
+                                            <div class="qty-wrapper d-flex align-center mt-3 gap-2">
+                                                <label class="">Quantity:</label>
+                                                <input type="number" class="qty-input" id="qty-PROD-101" value="5"
+                                                    min="5">
                                             </div>
+
+                                            <!-- Card Buttons -->
+                                            <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
+                                                <button class="btn btn-outline"
+                                                    onclick="addToCart('PROD-101', false)">Add
+                                                    to Cart</button>
+                                                <button class="btn btn-primary"
+                                                    onclick="addToCart('PROD-101', true)">Buy
+                                                    Now</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -491,21 +504,24 @@
                                         </div>
 
 
-                                            <div class="qty-btns">
-                                        <!-- quantity input -->
-                                        <div class="qty-wrapper d-flex align-center mt-3 gap-2">
-                                            <label class="">Quantity:</label>
-                                            <input type="number" class="qty-input" id="qty-PROD-101" value="5" min="5">
-                                        </div>
-
-                                        <!-- Card Buttons -->
-                                        <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
-                                            <button class="btn btn-outline" onclick="addToCart('PROD-101', false)">Add
-                                                to Cart</button>
-                                            <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
-                                                Now</button>
-                                        </div>
+                                        <div class="qty-btns">
+                                            <!-- quantity input -->
+                                            <div class="qty-wrapper d-flex align-center mt-3 gap-2">
+                                                <label class="">Quantity:</label>
+                                                <input type="number" class="qty-input" id="qty-PROD-101" value="5"
+                                                    min="5">
                                             </div>
+
+                                            <!-- Card Buttons -->
+                                            <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
+                                                <button class="btn btn-outline"
+                                                    onclick="addToCart('PROD-101', false)">Add
+                                                    to Cart</button>
+                                                <button class="btn btn-primary"
+                                                    onclick="addToCart('PROD-101', true)">Buy
+                                                    Now</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -545,21 +561,24 @@
                                         </div>
 
 
-                                            <div class="qty-btns">
-                                        <!-- quantity input -->
-                                        <div class="qty-wrapper d-flex align-center mt-3 gap-2">
-                                            <label class="">Quantity:</label>
-                                            <input type="number" class="qty-input" id="qty-PROD-101" value="5" min="5">
-                                        </div>
-
-                                        <!-- Card Buttons -->
-                                        <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
-                                            <button class="btn btn-outline" onclick="addToCart('PROD-101', false)">Add
-                                                to Cart</button>
-                                            <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
-                                                Now</button>
-                                        </div>
+                                        <div class="qty-btns">
+                                            <!-- quantity input -->
+                                            <div class="qty-wrapper d-flex align-center mt-3 gap-2">
+                                                <label class="">Quantity:</label>
+                                                <input type="number" class="qty-input" id="qty-PROD-101" value="5"
+                                                    min="5">
                                             </div>
+
+                                            <!-- Card Buttons -->
+                                            <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
+                                                <button class="btn btn-outline"
+                                                    onclick="addToCart('PROD-101', false)">Add
+                                                    to Cart</button>
+                                                <button class="btn btn-primary"
+                                                    onclick="addToCart('PROD-101', true)">Buy
+                                                    Now</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -1025,6 +1044,9 @@
             </div>
         </footer>
 
+
+        <script src="/js/main.js"></script>
+        <script src="/js/home.js"></script>
     </body>
 
 </html>
