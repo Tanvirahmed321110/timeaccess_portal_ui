@@ -178,9 +178,9 @@
                 <div class="container">
                     <div class="product-sec-wrap">
 
-                        <div class="contents">
+                        <div class="contents" id="grid-list-contents">
                             <!--===================================||  Grid View Products Here  ||====================================-->
-                            <div class="content  grid-5 grid-lg-4 grid-sm-2 gap-sm-3 gap-lg-4 gap-6">
+                            <div class="content list-contents grid-5 grid-lg-4 grid-sm-2 gap-sm-3 gap-lg-4 gap-6">
 
                                 <!--================= single product card ===============-->
                                 <div class="product-card">
@@ -218,18 +218,23 @@
                                         </div>
 
 
-                                        <!-- quantity input -->
-                                        <div class="qty-wrapper d-flex align-center mt-3 gap-2">
-                                            <label class="">Quantity:</label>
-                                            <input type="number" class="qty-input" id="qty-PROD-101" value="5" min="5">
-                                        </div>
+                                        <div class="qty-btns">
+                                            <!-- quantity input -->
+                                            <div class="qty-wrapper d-flex align-center mt-3 gap-2">
+                                                <label class="">Quantity:</label>
+                                                <input type="number" class="qty-input" id="qty-PROD-101" value="5"
+                                                    min="5">
+                                            </div>
 
-                                        <!-- Card Buttons -->
-                                        <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
-                                            <button class="btn btn-outline" onclick="addToCart('PROD-101', false)">Add
-                                                to Cart</button>
-                                            <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
-                                                Now</button>
+                                            <!-- Card Buttons -->
+                                            <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
+                                                <button class="btn btn-outline"
+                                                    onclick="addToCart('PROD-101', false)">Add
+                                                    to Cart</button>
+                                                <button class="btn btn-primary"
+                                                    onclick="addToCart('PROD-101', true)">Buy
+                                                    Now</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -270,6 +275,7 @@
                                         </div>
 
 
+                                            <div class="qty-btns">
                                         <!-- quantity input -->
                                         <div class="qty-wrapper d-flex align-center mt-3 gap-2">
                                             <label class="">Quantity:</label>
@@ -282,6 +288,7 @@
                                                 to Cart</button>
                                             <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
                                                 Now</button>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -322,6 +329,7 @@
                                         </div>
 
 
+                                            <div class="qty-btns">
                                         <!-- quantity input -->
                                         <div class="qty-wrapper d-flex align-center mt-3 gap-2">
                                             <label class="">Quantity:</label>
@@ -335,6 +343,7 @@
                                             <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
                                                 Now</button>
                                         </div>
+                                            </div>
                                     </div>
                                 </div>
 
@@ -374,6 +383,7 @@
                                         </div>
 
 
+                                            <div class="qty-btns">
                                         <!-- quantity input -->
                                         <div class="qty-wrapper d-flex align-center mt-3 gap-2">
                                             <label class="">Quantity:</label>
@@ -387,6 +397,7 @@
                                             <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
                                                 Now</button>
                                         </div>
+                                            </div>
                                     </div>
                                 </div>
 
@@ -426,6 +437,7 @@
                                         </div>
 
 
+                                            <div class="qty-btns">
                                         <!-- quantity input -->
                                         <div class="qty-wrapper d-flex align-center mt-3 gap-2">
                                             <label class="">Quantity:</label>
@@ -439,6 +451,7 @@
                                             <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
                                                 Now</button>
                                         </div>
+                                            </div>
                                     </div>
                                 </div>
 
@@ -478,6 +491,7 @@
                                         </div>
 
 
+                                            <div class="qty-btns">
                                         <!-- quantity input -->
                                         <div class="qty-wrapper d-flex align-center mt-3 gap-2">
                                             <label class="">Quantity:</label>
@@ -491,6 +505,7 @@
                                             <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
                                                 Now</button>
                                         </div>
+                                            </div>
                                     </div>
                                 </div>
 
@@ -530,6 +545,7 @@
                                         </div>
 
 
+                                            <div class="qty-btns">
                                         <!-- quantity input -->
                                         <div class="qty-wrapper d-flex align-center mt-3 gap-2">
                                             <label class="">Quantity:</label>
@@ -543,6 +559,7 @@
                                             <button class="btn btn-primary" onclick="addToCart('PROD-101', true)">Buy
                                                 Now</button>
                                         </div>
+                                            </div>
                                     </div>
                                 </div>
 
@@ -963,171 +980,6 @@
 
                             </div>
 
-                            <!--===================================||  List View Products Here  ||====================================-->
-                            <div class="content active gap-5">
-
-                                <!--============= List View Product Card ==============-->
-                                <div class="product-list-card">
-                                    <div class="product-badge sale">SALE</div>
-
-                                    <!--  -->
-                                    <div class="product-img-box">
-                                        <img class="default-img"
-                                            src="https://timeaccess-store.com/cdn/shop/files/SPB473J1-G.jpg?v=1781940506&width=1000"
-                                            alt="">
-                                        <img class="hover-img"
-                                            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80"
-                                            alt="">
-                                    </div>
-
-                                    <div class="product-details">
-                                        <span class="item-id">Item ID: PROD-105</span>
-                                        <h3 class="product-title py-1">TISSOT GENTLEMEN 38MM POWERMATRIC SILVER DIAL
-                                        </h3>
-
-                                        <div class="price-section">
-                                            <span class="current-price">TK 1200.00</span>
-                                            <span class="old-price">TK 1340.00</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="product-actions">
-
-                                        <!-- Quantity Here -->
-                                        <div class="quantity-wrapper">
-                                            <label>Quantity:</label>
-                                            <input type="number" value="5" min="1">
-                                        </div>
-
-                                        <!-- Btns Here -->
-                                        <div class="btn-group mt-4">
-                                            <button class="btn btn-outline">Add to Cart</button>
-                                            <button class="btn btn-primary">Buy Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--============= List View Product Card ==============-->
-                                <div class="product-list-card">
-                                    <div class="product-badge sale">SALE</div>
-
-                                    <!--  -->
-                                    <div class="product-img-box">
-                                        <img class="default-img"
-                                                src="//timeaccess-store.com/cdn/shop/files/T165.807.11.031.00-a.jpg?v=1781357864&width=1000"
-                                                alt="">
-                                        <img class="hover-img"
-                                            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80"
-                                            alt="">
-                                    </div>
-
-                                    <div class="product-details">
-                                        <span class="item-id">Item ID: PROD-105</span>
-                                        <h3 class="product-title py-1">TISSOT GENTLEMEN 38MM POWERMATRIC SILVER DIAL
-                                        </h3>
-
-                                        <div class="price-section">
-                                            <span class="current-price">TK 1200.00</span>
-                                            <span class="old-price">TK 1340.00</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="product-actions">
-
-                                        <!-- Quantity Here -->
-                                        <div class="quantity-wrapper">
-                                            <label>Quantity:</label>
-                                            <input type="number" value="5" min="1">
-                                        </div>
-
-                                        <!-- Btns Here -->
-                                        <div class="btn-group mt-4">
-                                            <button class="btn btn-outline">Add to Cart</button>
-                                            <button class="btn btn-primary">Buy Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--============= List View Product Card ==============-->
-                                <div class="product-list-card">
-                                    <div class="product-badge sale">SALE</div>
-
-                                    <!--  -->
-                                    <div class="product-img-box">
-                                        <img class="default-img"
-                                            src="https://timeaccess-store.com/cdn/shop/files/SPB473J1-G.jpg?v=1781940506&width=1000"
-                                            alt="">
-                                        <img class="hover-img"
-                                            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80"
-                                            alt="">
-                                    </div>
-
-                                    <div class="product-details">
-                                        <span class="item-id">Item ID: PROD-105</span>
-                                        <h3 class="product-title py-1">TISSOT GENTLEMEN 38MM POWERMATRIC SILVER DIAL
-                                        </h3>
-
-                                        <div class="price-section">
-                                            <span class="current-price">TK 1200.00</span>
-                                            <span class="old-price">TK 1340.00</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="product-actions">
-
-                                        <!-- Quantity Here -->
-                                        <div class="quantity-wrapper">
-                                            <label>Quantity:</label>
-                                            <input type="number" value="5" min="1">
-                                        </div>
-
-                                        <!-- Btns Here -->
-                                        <div class="btn-group mt-4">
-                                            <button class="btn btn-outline">Add to Cart</button>
-                                            <button class="btn btn-primary">Buy Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--============= List View Product Card ==============-->
-                                <div class="product-list-card">
-                                    <div class="product-badge sale">SALE</div>
-
-                                    <!--  -->
-                                    <div class="product-img-box">
-                                    <img class="default-img"
-                                                src="//timeaccess-store.com/cdn/shop/files/T165.807.11.031.00-a.jpg?v=1781357864&width=1000"
-                                                alt="">
-                                        <img class="hover-img"
-                                            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80"
-                                            alt="">
-                                    </div>
-
-                                    <div class="product-details">
-                                        <span class="item-id">Item ID: PROD-105</span>
-                                        <h3 class="product-title py-1">TISSOT GENTLEMEN 38MM POWERMATRIC SILVER DIAL
-                                        </h3>
-
-                                        <div class="price-section">
-                                            <span class="current-price">TK 1200.00</span>
-                                            <span class="old-price">TK 1340.00</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="product-actions">
-
-                                        <!-- Quantity Here -->
-                                        <div class="quantity-wrapper">
-                                            <label>Quantity:</label>
-                                            <input type="number" value="5" min="1">
-                                        </div>
-
-                                        <!-- Btns Here -->
-                                        <div class="btn-group mt-4">
-                                            <button class="btn btn-outline">Add to Cart</button>
-                                            <button class="btn btn-primary">Buy Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <!--============== Pagination (per page at least 30 item show)=============-->
                             <div class="d-flex align-end justify-end mt-7 active">
