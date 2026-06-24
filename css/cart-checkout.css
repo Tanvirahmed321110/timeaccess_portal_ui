@@ -398,4 +398,37 @@ textarea {
         width: 90px;
         height: 90px;
     }
+
+    .order-confrim .btn-group {
+        flex-direction: column;
+    }
+
+    .order-confrim .btn-group .btn {
+        flex: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+    .confirmation-wrapper {
+        max-width: 800px;
+        margin: 4rem auto;
+        background: var(--card-bg);
+        border-radius: var(--radius-3xl);
+        box-shadow: var(--shadow-sm);
+        padding: 24px 16px;
+        /* border: 1px solid var(--border-primary); */
+        position: relative;
+        margin: 0;
+    }
+
+    .order-confrim .manifest-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        overflow: auto;
+        display: grid;
+    }
+    .order-confrim .product-info img {
+    min-width: 45px;
+}
 }
