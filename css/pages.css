@@ -425,6 +425,71 @@ footer {
 }
 
 
+/* No Result */
+.no-results-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-xxl);
+    box-shadow: var(--shadow-1)
+}
+
+.no-results-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background-color: #b3400f14;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+}
+
+.no-results-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.no-results-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #1e293b; /* আপনার থিমের টেক্সট কালার */
+    margin-bottom: 10px;
+}
+
+.no-results-text {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* ক্লিয়ার সার্চ বাটনের স্টাইল - যা আপনার 'Buy Now' ও ক্যাটাগরি বাটনের সাথে মিলবে */
+.btn-clear-search {
+    background-color: var(--color-primary); /* আপনার থিমের মেইন ব্ল্যাক কালার */
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-clear-search:hover {
+    background-color: #2a2a2a;
+}
+
+.btn-clear-search:active {
+    transform: scale(0.98);
+}
+
 
 @media(max-width:767px) {
 
@@ -571,5 +636,9 @@ footer {
         align-items: center;
         justify-content: center;
         display: none;
+    }
+
+    footer .footer-wrap{
+        gap: 12px;
     }
 }

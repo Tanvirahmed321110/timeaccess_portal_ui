@@ -42,7 +42,9 @@
 
                     <!--======== Nav Menu Here ========-->
                     <ul class="d-flex gap-5 menus flex-center" id="menus">
-                        <li class="desktop-hide mobile-show"><h3 style="color: var(--color-text-light);">B2B Portal</h3></li>
+                        <li class="desktop-hide mobile-show">
+                            <h3 style="color: var(--color-text-light);">B2B Portal</h3>
+                        </li>
                         <li><a href="#" class="active" onclick="switchPage('portal-page')">Products
                                 Portal</a></li>
                         <li><a href="/profile.html">Wholesaler Profile</a>
@@ -179,9 +181,10 @@
                 <div class="container">
                     <div class="product-sec-wrap">
 
-                        <div class="contents">
+                        <div class="contents" >
                             <!--===================================||  Grid View Products Here  ||====================================-->
-                            <div class="content  grid-5 grid-lg-4 grid-sm-2 gap-sm-3 gap-lg-4 gap-6" id="grid-list-contents">
+                            <div class="content  grid-5 grid-lg-4 grid-sm-2 gap-sm-3 gap-lg-4 gap-6"
+                                id="grid-list-contents">
 
                                 <!--================= single product card ===============-->
                                 <div class="product-card">
@@ -288,7 +291,7 @@
                                             <div class="card-actions grid-2 gap-3 mt-4 grid-sm-1">
                                                 <a href="/cart.html" class="btn btn-outline">Add
                                                     to Cart</a>
-                                                <a href="/checkout.html"  class="btn btn-primary">Buy
+                                                <a href="/checkout.html" class="btn btn-primary">Buy
                                                     Now</a>
                                             </div>
                                         </div>
@@ -1020,6 +1023,30 @@
                                         </svg></a>
                                 </nav>
                             </div>
+                        </div>
+
+                        <div class="no-results-container">
+                            <div class="no-results-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M9 9L13 13" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                    <path d="M13 9L9 13" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <h3 class="no-results-title">No Matching Products Found</h3>
+                            <p class="no-results-text">We couldn't find any items matching your search. Please check the
+                                spelling or try searching with a different product name or Item ID (e.g., PROD-105).</p>
+
+                            <button type="button" class="btn-clear-search" onclick="location.reload();">
+                                Clear Search & View All
+                            </button>
                         </div>
                     </div>
 
