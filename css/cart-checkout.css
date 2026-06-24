@@ -351,7 +351,14 @@ textarea {
     border-bottom: 1px solid var(--border-primary);
 }
 
-
+.order-confrim .btn-group .btn {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
 
 
 
@@ -404,9 +411,12 @@ textarea {
     }
 
     .order-confrim .btn-group .btn {
-        flex: 1;
         width: 100%;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
     }
 
     .confirmation-wrapper {
@@ -428,7 +438,8 @@ textarea {
         overflow: auto;
         display: grid;
     }
+
     .order-confrim .product-info img {
-    min-width: 45px;
-}
+        min-width: 45px;
+    }
 }

@@ -7,6 +7,10 @@
     cursor: pointer;
     transition: var(--transition-base);
     font-family: inherit;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-fs-md.btn {
@@ -64,6 +68,20 @@
     color: var(--color-text-primary);
     margin-bottom: 8px;
     display: inline-block;
+}
+/* ডিফল্টভাবে এরর মেসেজ হাইড থাকবে */
+.error-message {
+    display: none;
+    color: #ff4d4d;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 500;
+}
+input.error {
+    border-color: var(--color-text-danger);
+}
+input.error + .error-message {
+    display: block;
 }
 
 

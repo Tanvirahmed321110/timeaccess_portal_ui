@@ -21,12 +21,30 @@
             <div class="container">
                 <div class="header-wrap flex-between gap-4">
 
+                    <!-- Menu Icon for Mobile -->
+                    <div class="mobile-show desktop-hide">
+                        <button class="menu-btn" type="button" id="menu-btn">
+                            <svg viewBox="0 0 24 24" width="22" fill="none" stroke="#ededed"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6.5h16" stroke-width="2" stroke-linecap="round"></path>
+                                <path d="M4 12h16" stroke-width="2" stroke-linecap="round"></path>
+                                <path d="M4 17.5h16" stroke-width="2" stroke-linecap="round"></path>
+                            </svg>
+                        </button>
+                    </div>
+
                     <!--========== Header Logo =========-->
-                    <a href="index.html" class="logo">B2B<span>WHOLESALE</span></a>
+                    <a href="index.html" class="logo mobile-hide">B2B<span>WHOLESALE</span></a>
+                    <div class="mobile-show desktop-hide">
+                        <img style="max-width: 140px;"
+                            src="https://timeaccess-store.com/cdn/shop/files/Timeaccesslogo_png.png?v=1675580990&width=220"
+                            alt="">
+                    </div>
 
                     <!--======== Nav Menu Here ========-->
-                    <ul class="d-flex gap-5 menus flex-center">
-                        <li><a href="/index.html" class="active" onclick="switchPage('portal-page')">Products
+                    <ul class="d-flex gap-5 menus flex-center" id="menus">
+                        <li class="desktop-hide mobile-show"><h3 style="color: var(--color-text-light);">B2B Portal</h3></li>
+                        <li><a href="#" class="active" onclick="switchPage('portal-page')">Products
                                 Portal</a></li>
                         <li><a href="/profile.html">Wholesaler Profile</a>
                         </li>
@@ -79,7 +97,8 @@
                                 </svg>
                             </div>
                             <h2 class="conf-title text-primary">Order Confirmed</h2>
-                            <p class="conf-subtitle fs-md">Your transaction has been securely processed and logged in our
+                            <p class="conf-subtitle fs-md">Your transaction has been securely processed and logged in
+                                our
                                 procurement system.</p>
                         </div>
 
@@ -124,7 +143,8 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="text-primary" style="text-align: center; font-weight: 600;">5 Lots</td>
+                                        <td class="text-primary" style="text-align: center; font-weight: 600;">5 Lots
+                                        </td>
                                         <td style="text-align: right; color: var(--text-muted);">$350.00</td>
                                         <td class="text-primary" style="text-align: right; font-weight: 600; ">
                                             $1,750.00</td>
@@ -142,7 +162,8 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="text-primary" style="text-align: center; font-weight: 600;">2 Lots</td>
+                                        <td class="text-primary" style="text-align: center; font-weight: 600;">2 Lots
+                                        </td>
                                         <td style="text-align: right; color: var(--text-muted);">$250.00</td>
                                         <td class="text-primary" style="text-align: right; font-weight: 600; ">$500.00
                                         </td>
@@ -167,7 +188,7 @@
                         </div>
 
                         <div class="btn-group">
-                            <a href="index.html" class="btn btn-outline" style="padding: 12px 24px;">
+                            <a href="index.html" class="btn btn-outline btn-fs-md" style="padding: 12px 24px;">
                                 <svg width="16" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M19 12H5M5 12L12 19M5 12L12 5"></path>
@@ -175,7 +196,7 @@
                                 Continue Sourcing
                             </a>
 
-                            <button class="btn btn-primary btn-fs-md"
+                            <button class="btn btn-primary btn-fs-md" id="downloadInvoiceBtn"
                                 style="padding: 15px 24px; display: inline-flex; gap: 8px;">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -184,7 +205,7 @@
                                     <path d="M4 20H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
                                     </path>
                                 </svg>
-                                Download Invoice PDF
+                                Download Invoice Image
                             </button>
                         </div>
 
@@ -209,6 +230,55 @@
             </div>
         </footer>
 
+
+        <script src="/js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script>
+            document.getElementById('downloadInvoiceBtn').addEventListener('click', function () {
+                const targetSection = document.querySelector('.confirmation-wrapper');
+                const btnGroup = targetSection.querySelector('.btn-group');
+
+                const originalText = this.innerHTML;
+                this.innerText = "Generating Image...";
+                this.disabled = true;
+
+                if (btnGroup) {
+                    btnGroup.style.display = 'none';
+                }
+
+                html2canvas(targetSection, {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: '#f9f9f9'
+                }).then(canvas => {
+                    const imageURI = canvas.toDataURL('image/png');
+
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = imageURI;
+                    downloadLink.download = 'Invoice_INV-2026-8942.png';
+
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+
+                    if (btnGroup) {
+                        btnGroup.style.display = 'flex';
+                    }
+
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                }).catch(error => {
+                    console.error('Oops, something went wrong!', error);
+
+                    if (btnGroup) {
+                        btnGroup.style.display = 'flex';
+                    }
+
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                });
+            });
+        </script>
     </body>
 
 </html>

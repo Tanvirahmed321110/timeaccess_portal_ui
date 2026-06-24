@@ -428,6 +428,10 @@ footer {
 
 @media(max-width:767px) {
 
+    .btn.btn-fs-md{
+        font-size: 14px;
+        text-align: center;
+    }
 
     .filter-sec-wrap {
         padding: 16px;
