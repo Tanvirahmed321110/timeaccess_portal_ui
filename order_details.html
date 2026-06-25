@@ -106,9 +106,9 @@
                                     <p class="mt-2 "> <span class="fw-bold">Placed on:</span> June 24, 2026 at
                                         4:26 PM</p>
                                 </div>
-                                <div class=" d-flex justify-end gap-4 flex-wrap gap-sm-3">
+                                <div class=" d-flex justify-end gap-4 flex-wrap btn-wraps gap-sm-3">
                                     <a href="/index.html" class="btn btn-outline">Back To Home</a>
-                                    <button class="btn btn-primary">Download Invoice</button>
+                                    <button class="btn btn-primary" id="downloadInvoiceBtn">Download Invoice</button>
                                 </div>
                             </div>
 
@@ -241,7 +241,53 @@
 
 
         <script src="/js/main.js"></script>
-        <script src="/js/home.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script>
+            document.getElementById('downloadInvoiceBtn').addEventListener('click', function () {
+                const targetSection = document.querySelector('.order-details-card');
+                const btnGroup = targetSection.querySelector('.btn-wraps');
+
+                const originalText = this.innerHTML;
+                this.innerText = "Generating Image...";
+                this.disabled = true;
+
+                if (btnGroup) {
+                    btnGroup.style.display = 'none';
+                }
+
+                html2canvas(targetSection, {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: '#f9f9f9'
+                }).then(canvas => {
+                    const imageURI = canvas.toDataURL('image/png');
+
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = imageURI;
+                    downloadLink.download = 'Invoice_INV-2026-8942.png';
+
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+
+                    if (btnGroup) {
+                        btnGroup.style.display = 'flex';
+                    }
+
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                }).catch(error => {
+                    console.error('Oops, something went wrong!', error);
+
+                    if (btnGroup) {
+                        btnGroup.style.display = 'flex';
+                    }
+
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                });
+            });
+        </script>
     </body>
 
 </html>
