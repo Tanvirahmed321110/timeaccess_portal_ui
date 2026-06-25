@@ -361,6 +361,59 @@ textarea {
 }
 
 
+/*==============  order  ==============*/
+.order-sec .card {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 12px 0px;
+    box-shadow: var(--shadow-1);
+}
+
+.order-sec table tr {
+    border-bottom: 1px solid var(--border-primary) ;
+}
+
+.order-sec table tbody tr:nth-child(even){
+    background-color:#f2f2f29e;
+}
+
+.order-sec table thead tr {
+    border-top: 1px solid var(--border-primary) ;
+    border-bottom: 1px solid var(--border-primary) ;
+}
+
+.order-sec .paid {
+    padding: 4px 8px;
+    border-radius: var(--radius-round);
+
+}
+
+
+.order-sec .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.order-sec .badge.success {
+    background: #e6f4ea;
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+.order-sec .badge.pending {
+    background: #fff4e6;
+    color: #e67e22;
+    font-weight: 700;
+}
+.order-sec .badge.cancel {
+    background: #a3600941;
+    color: red;
+}
+
+
 
 
 @media (max-width:767px) {

@@ -12,6 +12,10 @@
     align-items: center;
     justify-content: center;
 }
+.btn.btn-sm{
+    padding: 8px 14px;
+    font-size: 13.5px;
+}
 
 .btn-fs-md.btn {
     font-size:15px;
