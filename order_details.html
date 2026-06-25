@@ -46,11 +46,11 @@
                         <li class="desktop-hide mobile-show">
                             <h3 style="color: var(--color-text-light);">B2B Portal</h3>
                         </li>
-                        <li><a href="#" class="active" onclick="switchPage('portal-page')">Products
+                        <li><a href="#" class="" onclick="switchPage('portal-page')">Products
                                 Portal</a></li>
                         <li><a href="/profile.html">Wholesaler Profile</a>
                         </li>
-                        <li><a href="/orders.html">Orders</a>
+                        <li><a class="active" href="/orders.html">Orders</a>
                         </li>
                     </ul>
 
@@ -98,45 +98,44 @@
                     <div id="order-details-section" style="max-width: 1080px; margin: 0 auto ;margin-top: 32px;">
                         <h2 class="page-title">Order Details</h2>
 
-                        <div class="card mt-5 p-5 radius-xxl">
+                        <div class="card mt-5 p-6 radius-xxl order-details-card">
                             <!-- Details Header Info -->
-                            <div class="details-header">
+                            <div class="details-header flex-between">
                                 <div>
                                     <h5 class="fw-bolder text-primary fs-md">Order ID: #ORD-9952</h5>
                                     <p class="mt-2 "> <span class="fw-bold">Placed on:</span> June 24, 2026 at
                                         4:26 PM</p>
                                 </div>
-                                <div class=" d-flex justify-end gap-4">
-                                    <button class="btn btn-outline">Back To Home</button>
+                                <div class=" d-flex justify-end gap-4 flex-wrap gap-sm-3">
+                                    <a href="/index.html" class="btn btn-outline">Back To Home</a>
                                     <button class="btn btn-primary">Download Invoice</button>
                                 </div>
                             </div>
 
                             <!-- Shipping and Wholesaler Info Grid -->
-                            <div class="grid-3 mt-6">
+                            <div class="grid-3 mt-7 gap-3 grid-sm-1">
                                 <div class="info-box">
                                     <h5 class="text-primary mb-2 fw-bolder">Shipping Address</h5>
                                     <p>Gulshan-2, Dhaka<br>Dhaka Division, 1212<br>Bangladesh</p>
                                 </div>
                                 <div class="info-box">
                                     <h5 class="text-primary mb-2 fw-bolder">Payment Method</h5>
-                                    <p>Bank Transfer<br>Status: <span
-                                            style="color: var(--badge-success); font-weight: 600;">Paid</span></p>
+                                    <p>Bank Transfer<br>Status: <span class="badge success ">Paid</span></p>
                                 </div>
                                 <div class="info-box">
                                     <h5 class="text-primary mb-2 fw-bolder">Fulfillment Status</h5>
                                     <p>Status: <span
-                                            style="color: var(--badge-pending); font-weight: 600;">Processing</span><br>Expected
+                                            style="color: var(--badge-pending); font-weight: 600;"><span class="badge success  ">Processing</span> </span><br>Expected
                                         Delivery: June 28, 2026</p>
                                 </div>
                             </div>
 
                             <!-- Ordered Items Table -->
-                            <div class="table-responsive order-confrim mt-6 w-100-p">
+                            <div class="table-responsive order-confrim mt-7 w-100-p">
                                 <table class="manifest-table" style="width: 100%;">
                                     <thead>
                                         <tr>
-                                            <th>Product Details</th>
+                                            <th  style="min-width: 200px;width: 200px;">Product Details</th>
                                             <th>Item ID</th>
                                             <th>Unit Price</th>
                                             <th style="text-align: center;">Quantity</th>
@@ -145,46 +144,46 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="d-flex align-center gap-3">
+                                            <td class="d-flex align-center gap-3"  style="min-width: 270px;width: 270px;">
                                                 <img style="width: 48px;height: 44px;border-radius: var(--radius-sm);"
-                                                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&amp;q=80"
+                                                    src="//timeaccess-store.com/cdn/shop/files/T165.807.11.031.00-a.jpg?v=1781357864&width=1000"
                                                     alt="Product Image">
                                                 <div>
-                                                    <div style="font-weight: 600;">Seiko Prospex 'Zakynthos' Limited
+                                                    <div class="text-left fw-medium">Seiko Prospex 'Zakynthos' Limited
                                                         Edition</div>
                                                 </div>
                                             </td>
                                             <td>PROD-105</td>
                                             <td>TK 1200.00</td>
-                                            <td style="text-align: center; font-weight: 700;">3</td>
+                                            <td style="text-align: center; font-weight: 600;">3</td>
                                             <td  style="text-align: right; font-weight: 600;">TK 3,600.00</td>
                                         </tr>
                                         <tr>
-                                            <td class="d-flex align-center gap-3">
+                                            <td class="d-flex align-center gap-3"  style="min-width: 270px;width: 270px;">
                                                 <img style="width: 48px;height: 44px;border-radius: var(--radius-sm);"
-                                                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&amp;q=80"
+                                                    src="//timeaccess-store.com/cdn/shop/files/T165.807.11.031.00-a.jpg?v=1781357864&width=1000"
                                                     alt="Product Image">
                                                 <div>
-                                                    <div style="font-weight: 600;">Rado Florence Diamond Two-Tone</div>
+                                                    <div  class="text-left fw-medium">Rado Florence Diamond Two-Tone</div>
                                                 </div>
                                             </td>
                                             <td>PROD-105</td>
                                             <td>TK 1200.00</td>
-                                            <td style="text-align: center;font-weight: 700;">2</td>
+                                            <td style="text-align: center;font-weight: 600;">2</td>
                                             <td  style="text-align: right; font-weight: 600;">TK 2,400.00</td>
                                         </tr>
                                         <tr>
-                                            <td class="d-flex align-center gap-3">
+                                            <td class="d-flex align-center gap-3"  style="min-width: 270px;width: 270px;">
                                                 <img style="width: 48px;height: 44px;border-radius: var(--radius-sm);"
-                                                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&amp;q=80"
+                                                    src="https://timeaccess-store.com/cdn/shop/files/SPB473J1-G.jpg?v=1781940506&width=1000"
                                                     alt="Product Image">
                                                 <div>
-                                                    <div style="font-weight: 600;">Rado Florence Diamond Two-Tone</div>
+                                                    <div  class="text-left fw-medium">Rado Florence Diamond Two-Tone</div>
                                                 </div>
                                             </td>
                                             <td>PROD-105</td>
                                             <td>TK 1200.00</td>
-                                            <td style="text-align: center;font-weight: 700;">2</td>
+                                            <td style="text-align: center;font-weight: 600;">2</td>
                                             <td  style="text-align: right; font-weight: 600;">TK 2,400.00</td>
                                         </tr>
                                     </tbody>

@@ -27,6 +27,7 @@
     background-color: var(--btn-primary-bg);
     background-color: var(--btn-primary-bg);
     color: var(--btn-primary-text);
+    border: 1px solid var(--color-primary);
 }
 
 .btn:hover {
