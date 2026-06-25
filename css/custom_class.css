@@ -335,7 +335,7 @@ p {
     font-size: var(--fs-sm);
     line-height: var(--line-height-sm);
     margin-bottom: 0;
-    font-weight: var(--fw-400);
+    color: var(--color-text-desc);
 }
 
 img {

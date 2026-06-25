@@ -11,6 +11,7 @@
     gap: 4px;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 }
 .btn.btn-sm{
     padding: 8px 14px;

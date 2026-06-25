@@ -362,6 +362,19 @@ textarea {
 
 
 /*==============  order  ==============*/
+.order-sec  table th{
+    text-align: center;
+    white-space: nowrap;
+    min-width: 160px;
+}
+.order-sec  table td{
+    text-align: center;
+    min-width: 160px;
+    font-weight: 500;
+}
+.nowrap{
+    white-space: nowrap;
+}
 .order-sec .card {
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 12px 0px;
@@ -411,6 +424,11 @@ textarea {
 .order-sec .badge.cancel {
     background: #a3600941;
     color: red;
+}
+
+
+.summary-table td{
+    padding: 12px;
 }
 
 
